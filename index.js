@@ -743,7 +743,7 @@ app.get("*", (req, res) => {
       .status(404)
       .json({ success: false, message: "API endpoint not found" });
   }
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // ==================== START ====================
