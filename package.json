@@ -1,0 +1,27 @@
+{
+  "name": "pasukan-katak-orange-api",
+  "version": "1.0.0",
+  "description": "Data pengelolaan sampah Kali Bekasi oleh Pasukan Katak Orange, Dinas Lingkungan Hidup Kota Bekasi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "sampah",
+    "kali-bekasi",
+    "dlh-bekasi",
+    "pasukan-katak-orange"
+  ],
+  "author": "Dinas Lingkungan Hidup Kota Bekasi",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "googleapis": "^128.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
