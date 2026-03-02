@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi</title>
+    <meta
+      name="description"
+      content="Data Pengelolaan Sampah Kali Bekasi oleh Pasukan Katak Orange, Dinas Lingkungan Hidup Kota Bekasi. Menjaga kebersihan sungai sejak 2018."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+
+  <body>
+    <canvas id="three-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div
+          class="nav-logo"
+          style="
+            background: linear-gradient(
+              135deg,
+              var(--green-500),
+              var(--orange-500)
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+          "
+        >
+          <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+        </div>
+        <div>
+          <div class="nav-title">Pasukan Katak Orange</div>
+          <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link active">Beranda</a>
+        <a href="/dashboard.html" class="nav-link">Data Sampah</a>
+        <a href="/education.html" class="nav-link">Edukasi</a>
+        <a href="/gallery.html" class="nav-link">Galeri</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-auth"></div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge animate-float">
+            <i class="fas fa-leaf"></i> Menjaga Kali Bekasi Sejak 2018
+          </div>
+          <h1>
+            <span class="text-green">Pasukan Katak</span><br />
+            <span class="text-orange">Orange</span>
+          </h1>
+          <p>
+            Data pengelolaan sampah Kali Bekasi oleh Pasukan Katak Orange, Dinas
+            Lingkungan Hidup Kota Bekasi. Visualisasi data real-time dari
+            lapangan.
+          </p>
+          <div class="hero-buttons">
+            <a href="/dashboard.html" class="btn btn-primary btn-lg">
+              <i class="fas fa-chart-bar"></i> Lihat Data Sampah
+            </a>
+            <a href="#about" class="btn btn-outline btn-lg">
+              <i class="fas fa-info-circle"></i> Tentang Kami
+            </a>
+          </div>
+          <div class="hero-logos">
+            <div
+              class="hero-logo-img"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.6rem;
+                text-align: center;
+                padding: 5px;
+                color: var(--green-400);
+              "
+            >
+              <img src="/images/Logo_Bekasi.jpeg" alt="Logo Bekasi" /><br />
+            </div>
+            <div
+              class="hero-logo-img"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.6rem;
+                text-align: center;
+                padding: 5px;
+                color: var(--green-400);
+              "
+            >
+              <img src="/images/Logo_DLH.jpeg" alt="Logo DLH" /><br />
+            </div>
+            <div
+              class="hero-logo-img"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.6rem;
+                text-align: center;
+                padding: 5px;
+                color: var(--orange-400);
+              "
+            >
+              <img src="/images/Logo_Pasukan_Katak.jpeg" /><br />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATISTICS SECTION -->
+      <section class="section" id="stats">
+        <div class="container">
+          <div class="section-title animate-on-scroll">
+            <h2>Hasil Kerja <span class="accent">Nyata</span></h2>
+            <div class="section-divider"></div>
+            <p>Data terkumpul dari kegiatan pengelolaan sampah Kali Bekasi</p>
+          </div>
+          <div class="stats-grid" id="stats-grid">
+            <div class="stat-card animate-on-scroll">
+              <div class="stat-icon"><i class="fas fa-weight-hanging"></i></div>
+              <div
+                class="stat-number"
+                id="stat-total-berat"
+                data-count="0"
+                data-suffix=" kg"
+              >
+                0
+              </div>
+              <div class="stat-label">Total Berat Sampah</div>
+            </div>
+            <div class="stat-card animate-on-scroll delay-100">
+              <div class="stat-icon"><i class="fas fa-clipboard-list"></i></div>
+              <div class="stat-number" id="stat-total-entries" data-count="0">
+                0
+              </div>
+              <div class="stat-label">Total Data Tercatat</div>
+            </div>
+            <div class="stat-card animate-on-scroll delay-200">
+              <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+              <div class="stat-number" id="stat-total-days" data-count="0">
+                0
+              </div>
+              <div class="stat-label">Hari Pengumpulan</div>
+            </div>
+            <div class="stat-card animate-on-scroll delay-300">
+              <div class="stat-icon"><i class="fas fa-users"></i></div>
+              <div class="stat-number" id="stat-members" data-count="33">0</div>
+              <div class="stat-label">Anggota Aktif</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PIMPINAN / LEADERSHIP SECTION -->
+      <section class="section" id="pimpinan">
+        <div class="container">
+          <div class="section-title animate-on-scroll">
+            <h2>Pimpinan <span class="accent">Kami</span></h2>
+            <div class="section-divider"></div>
+            <p>
+              Jajaran pimpinan yang memimpin dan mendukung misi Pasukan Katak
+              Orange
+            </p>
+          </div>
+          <div class="pimpinan-grid">
+            <div class="pimpinan-card animate-on-scroll">
+              <div class="pimpinan-photo">
+                <img
+                  src="/images/kepala_dinas.png"
+                  alt="Kepala Dinas"
+                  loading="lazy"
+                />
+                <div class="pimpinan-glow"></div>
+              </div>
+              <div class="pimpinan-info">
+                <h4 class="pimpinan-name">Dra.Kiswatinigsih., M.Sc</h4>
+                <p class="pimpinan-title">Kepala Dinas Lingkungan Hidup</p>
+                <p class="pimpinan-subtitle">Pemerintah Kota Bekasi</p>
+              </div>
+            </div>
+            <div class="pimpinan-card animate-on-scroll delay-100">
+              <div class="pimpinan-photo">
+                <img
+                  src="/images/Sekertaris_Dinas.jpeg"
+                  alt="Sekretaris Dinas"
+                  loading="lazy"
+                />
+                <div class="pimpinan-glow"></div>
+              </div>
+              <div class="pimpinan-info">
+                <h4 class="pimpinan-name">Dyah Kusumo Winahyu., S.H., M.H.</h4>
+                <p class="pimpinan-title">Sekretaris Dinas Lingkungan Hidup</p>
+                <p class="pimpinan-subtitle">Pemerintah Kota Bekasi</p>
+              </div>
+            </div>
+            <div class="pimpinan-card animate-on-scroll delay-200">
+              <div class="pimpinan-photo">
+                <img
+                  src="/images/kepala_bidang.png"
+                  alt="Kepala Bidang"
+                  loading="lazy"
+                />
+                <div class="pimpinan-glow"></div>
+              </div>
+              <div class="pimpinan-info">
+                <h4 class="pimpinan-name">
+                  Wulan Agustina Triwardani., S.E., MM
+                </h4>
+                <p class="pimpinan-title">
+                  Kepala Bidang Pengendalian Pencemaran, Kerusakan Lingkungan
+                  Hidup Dan Penegak Hukum
+                </p>
+                <p class="pimpinan-subtitle">Pemerintah Kota Bekasi</p>
+              </div>
+            </div>
+            <div class="pimpinan-card animate-on-scroll delay-300">
+              <div class="pimpinan-photo">
+                <img
+                  src="/images/kepala_kordinator.jpeg"
+                  alt="Kepala Koordinator Lapangan"
+                  loading="lazy"
+                />
+                <div class="pimpinan-glow"></div>
+              </div>
+              <div class="pimpinan-info">
+                <h4 class="pimpinan-name">Mansur., S.Ip</h4>
+                <p class="pimpinan-title">
+                  Kepala Koordinator Lapangan Pasukan Katak Orange
+                </p>
+                <p class="pimpinan-subtitle">Pemerintah Kota Bekasi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-image animate-on-scroll">
+              <div
+                style="
+                  height: 350px;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(76, 175, 80, 0.3),
+                    rgba(255, 152, 0, 0.2)
+                  );
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-direction: column;
+                  gap: 1rem;
+                "
+              >
+                <i
+                  class="fas fa-frog"
+                  style="font-size: 5rem; color: var(--orange-400)"
+                ></i>
+                <span
+                  style="
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: var(--green-400);
+                  "
+                  ><img src="/images/Foto Beranda.jpeg"
+                /></span>
+                <span style="font-size: 0.85rem; color: var(--text-muted)"
+                  >📷 Foto dari @pasukankatak_dlh</span
+                >
+              </div>
+            </div>
+            <div class="about-text animate-on-scroll delay-200">
+              <h3>Sejarah Pasukan Katak Orange</h3>
+              <p>
+                <strong>Pasukan Katak Orange</strong> terbentuk pada tahun
+                <strong>2018</strong> di bawah naungan
+                <strong>Dinas Lingkungan Hidup (DLH) Kota Bekasi</strong>. Tim
+                ini dibentuk sebagai respons terhadap permasalahan sampah yang
+                semakin menumpuk di Kali Bekasi.
+              </p>
+              <p>
+                Dengan semangat gotong royong dan kepedulian terhadap
+                lingkungan, Pasukan Katak Orange secara rutin melakukan
+                pembersihan dan pengumpulan sampah di sepanjang Kali Bekasi.
+                Setiap kegiatan didokumentasikan dan datanya dicatat secara
+                sistematis untuk pelaporan kepada pimpinan.
+              </p>
+              <p>
+                Nama "Katak" diambil sebagai simbol kedekatan dengan air dan
+                sungai, sementara warna "Orange" melambangkan semangat dan
+                energi dalam menjaga kebersihan lingkungan.
+              </p>
+              <div class="about-features">
+                <div class="about-feature">
+                  <i class="fas fa-check-circle"></i> Berdiri Sejak 2018
+                </div>
+                <div class="about-feature">
+                  <i class="fas fa-check-circle"></i> DLH Kota Bekasi
+                </div>
+                <div class="about-feature">
+                  <i class="fas fa-check-circle"></i> Pembersihan Rutin
+                </div>
+                <div class="about-feature">
+                  <i class="fas fa-check-circle"></i> Data Terukur
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE SECTION -->
+      <section class="section" id="timeline">
+        <div class="container">
+          <div class="section-title animate-on-scroll">
+            <h2>Perjalanan <span class="accent">Kami</span></h2>
+            <div class="section-divider"></div>
+            <p>Jejak langkah Pasukan Katak Orange dalam menjaga Kali Bekasi</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item animate-on-scroll">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2015</div>
+                <h4>
+                  Cikal Bakal Tim Pembersih Sungai di Bawah Badan Lingkungan
+                  Hidup
+                </h4>
+                <p>
+                  Pada tahun 2015, sebelum memiliki identitas resmi, tim
+                  pembersih sungai masih berada di bawah naungan Badan
+                  Lingkungan Hidup Kota Bekasi melalui Bidang PDL (Pengendalian
+                  Dampak Lingkungan). Tim ini dibentuk sebagai respons terhadap
+                  meningkatnya penumpukan sampah di sepanjang Kali Bekasi dan
+                  sejumlah saluran air utama di Kota Bekasi. Jumlah anggota awal
+                  berkisar antara 20–30 orang dengan sistem kerja harian
+                  lapangan yang difokuskan pada pengangkatan sampah manual
+                  menggunakan alat sederhana dan perahu kecil operasional.
+                  Sistem pembayaran pada masa ini masih bersifat harian (cash),
+                  diberikan sesuai jumlah hari kerja aktif di lapangan. Skema
+                  ini diterapkan karena status tim masih berbasis tenaga harian
+                  lepas yang ditugaskan membantu operasional kebersihan sungai.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2016</div>
+                <h4>
+                  Penguatan Pola Kerja Lapangan dan Penambahan Armada Sederhana
+                </h4>
+                <p>
+                  Memasuki tahun 2016, pola kerja mulai lebih terstruktur
+                  meskipun masih berada di bawah koordinasi Bidang PDL.
+                  Penugasan dibagi berdasarkan zona pembersihan dan titik rawan
+                  sampah. Kegiatan rutin meliputi penyisiran sungai,
+                  pengangkatan sampah kiriman, serta pembersihan darat di
+                  bantaran. Jumlah anggota tetap berada di kisaran 20–30
+                  personel aktif, dengan jadwal kerja yang lebih teratur
+                  mengikuti hari kerja efektif. Sistem pembayaran tetap
+                  menggunakan metode harian tunai (cash) sesuai kehadiran kerja.
+                  Pada fase ini mulai ada peningkatan dukungan peralatan seperti
+                  perahu tambahan dan alat pengait sampah untuk mempercepat
+                  proses evakuasi sampah dari badan sungai.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2017</div>
+                <h4>Konsolidasi Internal dan Munculnya Identitas Lapangan</h4>
+                <p>
+                  Tahun 2017 menjadi masa konsolidasi dan penguatan identitas di
+                  lapangan. Walaupun secara administratif masih berada di bawah
+                  Badan Pengelolaan Lingkungan Hidup Kota Bekasi melalui Bidang
+                  PDL, Pada tahun ini juga Badan Pengelolaan Lingkungan Hidup
+                  Kota Bekasi bertransformasi menjadi Dinas Lingkungan Hidup
+                  Kota Bekasi tim ini mulai dikenal masyarakat sebagai “pasukan
+                  pembersih kali” karena intensitas kegiatan yang semakin tinggi
+                  dan konsisten. Koordinasi lapangan semakin tertata, dengan
+                  pembagian tugas antara tim air dan tim darat. Bantuan saat
+                  kondisi darurat seperti banjir juga mulai menjadi bagian dari
+                  tugas tambahan tim. Sistem pembayaran harian cash masih
+                  diterapkan sesuai hari kerja efektif, namun mulai muncul
+                  pembahasan internal mengenai kebutuhan pembentukan tim yang
+                  lebih permanen, memiliki nama resmi, identitas seragam, serta
+                  sistem manajemen yang lebih kuat. Fase ini menjadi fondasi
+                  penting menuju transformasi kelembagaan pada tahun berikutnya.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2018</div>
+                <h4>Transformasi Menjadi Pasukan Katak Orange</h4>
+                <p>
+                  Berangkat dari pengalaman operasional 2015–2017, pada tahun
+                  2018 tim ini resmi bertransformasi di bawah Dinas Lingkungan
+                  Hidup Kota Bekasi menjadi Pasukan Katak Orange dengan
+                  identitas, seragam, struktur koordinasi, serta sistem kerja
+                  yang lebih profesional. Transformasi ini menandai perubahan
+                  dari tenaga harian lapangan menjadi tim operasional kebersihan
+                  sungai yang terorganisir dan menjadi ujung tombak penanganan
+                  sampah di Kali Bekasi dan wilayah Kota Bekasi secara
+                  keseluruhan.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-100">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2019</div>
+                <h4>Penguatan Operasional dan Awal Koneksi Strategis</h4>
+                <p>
+                  Memasuki tahun 2019, Pasukan Katak Orange mulai memperluas
+                  cakupan kerja dan memperkuat pola operasional lapangan.
+                  Pembersihan tidak hanya dilakukan di Kali Bekasi, tetapi juga
+                  di saluran sekunder dan titik-titik rawan banjir di berbagai
+                  kecamatan. Pada tahun ini pula terjalin koneksi dan komunikasi
+                  awal dengan Waste4Change sebagai mitra strategis dalam
+                  pengelolaan sampah berkelanjutan. Kolaborasi ini menjadi
+                  fondasi penting dalam peningkatan kapasitas manajemen sampah
+                  meskipun peresmian kerja sama belum dilakukan pada tahap ini.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-200">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2020</div>
+                <h4>Konsolidasi dan Adaptasi Sistem Kerja</h4>
+                <p>
+                  Tahun 2020 menjadi periode konsolidasi internal dan adaptasi
+                  sistem kerja di tengah berbagai tantangan operasional. Pasukan
+                  Katak Orange memperkuat standar keselamatan kerja, memperbaiki
+                  sistem koordinasi lapangan, serta meningkatkan intensitas
+                  patroli sungai dan bantuan darat saat kondisi darurat seperti
+                  banjir. Edukasi kepada masyarakat mulai lebih digencarkan
+                  melalui pendekatan langsung di lokasi kegiatan kebersihan.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2021</div>
+                <h4>Peresmian Kerja Sama dan Awal Digitalisasi</h4>
+                <p>
+                  Pada tahun 2021 menjadi tonggak penting dengan diresmikannya
+                  kerja sama antara Dinas Lingkungan Hidup Kota Bekasi dan
+                  Waste4Change. Kolaborasi ini memperkuat aspek pengelolaan dan
+                  pemilahan sampah secara lebih terstruktur. Di tahun yang sama,
+                  Pasukan Katak Orange mulai melakukan digitalisasi pendataan
+                  sampah, menggantikan pencatatan manual menjadi sistem berbasis
+                  data yang lebih terukur dan terdokumentasi. Digitalisasi ini
+                  mencakup pencatatan volume, jenis sampah, serta titik
+                  pengangkutan sebagai bagian dari upaya transparansi dan
+                  akuntabilitas kinerja.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2022</div>
+                <h4>Penguatan Data dan Edukasi Publik</h4>
+                <p>
+                  Memasuki tahun 2022, sistem digitalisasi semakin disempurnakan
+                  dengan pengelolaan data yang lebih rapi dan terintegrasi.
+                  Pasukan Katak Orange mulai memanfaatkan media sosial sebagai
+                  sarana publikasi kegiatan harian, laporan pengangkutan sampah,
+                  serta kampanye edukasi lingkungan. Partisipasi dalam kegiatan
+                  kebersihan kota semakin intensif, menjadikan Pasukan Katak
+                  Orange sebagai ujung tombak Dinas Lingkungan Hidup dalam aksi
+                  cepat tanggap pembersihan sungai dan wilayah terdampak.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2023</div>
+                <h4>Integrasi Operasional Air dan Darat</h4>
+                <p>
+                  Pada tahun 2023, integrasi antara tim operasional air dan
+                  bantuan darat semakin diperkuat. Tidak hanya fokus pada
+                  pembersihan Kali Bekasi, tim juga aktif dalam penanganan
+                  sampah pasca banjir, kegiatan gotong royong massal, serta
+                  dukungan kebersihan dalam berbagai agenda Pemerintah Kota
+                  Bekasi. Dokumentasi kegiatan semakin sistematis dan berbasis
+                  data, memperlihatkan tren pengangkutan dan efektivitas kerja
+                  tim.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2024</div>
+                <h4>Transparansi Data dan Penguatan Branding</h4>
+                <p>
+                  Tahun 2024 menjadi fase penguatan identitas dan branding
+                  Pasukan Katak Orange. Data pengangkutan sampah mulai
+                  divisualisasikan dalam bentuk grafik dan laporan berkala.
+                  Media sosial dikelola lebih profesional untuk menyampaikan
+                  capaian kinerja, edukasi lingkungan, serta dokumentasi aksi
+                  lapangan. Transparansi data menjadi bagian dari komitmen
+                  terhadap pelayanan publik yang akuntabel dan terbuka.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2025</div>
+                <h4>Pengembangan Sistem Informasi dan Website Resmi</h4>
+                <p>
+                  Pada tahun 2025, Pasukan Katak Orange mengembangkan sistem
+                  informasi berbasis web yang menampilkan data pengangkutan
+                  sampah, dokumentasi kegiatan, serta materi edukasi lingkungan.
+                  Website resmi ini menjadi pusat informasi publik yang dapat
+                  diakses masyarakat untuk melihat perkembangan kinerja secara
+                  berkala. Integrasi data digital dengan tampilan visual
+                  memperkuat akurasi laporan dan meningkatkan kepercayaan
+                  publik.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item animate-on-scroll delay-300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-year">2026</div>
+                <h4>
+                  Optimalisasi Digital dan Penguatan Peran sebagai Ujung Tombak
+                  DLH
+                </h4>
+                <p>
+                  Memasuki tahun 2026, sistem website terus diperbarui dengan
+                  fitur pencarian data per tanggal dan per bulan, grafik
+                  otomatis, serta dokumentasi kegiatan yang terhubung dengan
+                  media sosial. Pasukan Katak Orange semakin mengukuhkan diri
+                  sebagai ujung tombak Dinas Lingkungan Hidup Kota Bekasi dalam
+                  penanganan kebersihan sungai, wilayah perkotaan, hingga
+                  bantuan darat saat kondisi darurat. Transformasi dari tim
+                  operasional lapangan menjadi unit kerja berbasis data dan
+                  digital menjadi bukti komitmen terhadap pengelolaan lingkungan
+                  yang modern, transparan, dan berkelanjutan di Kota Bekasi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITY RECAP SECTION -->
+      <section class="section" id="rekap-kegiatan">
+        <div class="container">
+          <div class="section-title animate-on-scroll">
+            <h2><span class="accent">Rekap</span> Kegiatan</h2>
+            <div class="section-divider"></div>
+            <p>Ringkasan aktivitas Pasukan Katak Orange secara berkala</p>
+          </div>
+          <div class="recap-grid">
+            <div class="recap-card animate-on-scroll">
+              <div
+                class="recap-icon"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 152, 0, 0.2),
+                    rgba(255, 87, 34, 0.1)
+                  );
+                "
+              >
+                <i
+                  class="fas fa-weight-hanging"
+                  style="color: var(--orange-400)"
+                ></i>
+              </div>
+              <div class="recap-value" id="recap-total-berat">0 kg</div>
+              <div class="recap-label">Total Sampah Terkumpul</div>
+            </div>
+            <div class="recap-card animate-on-scroll delay-100">
+              <div
+                class="recap-icon"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(76, 175, 80, 0.2),
+                    rgba(56, 142, 60, 0.1)
+                  );
+                "
+              >
+                <i
+                  class="fas fa-calendar-check"
+                  style="color: var(--green-400)"
+                ></i>
+              </div>
+              <div class="recap-value" id="recap-total-days">0</div>
+              <div class="recap-label">Hari Pengumpulan</div>
+            </div>
+            <div class="recap-card animate-on-scroll delay-200">
+              <div
+                class="recap-icon"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 152, 0, 0.2),
+                    rgba(255, 167, 38, 0.1)
+                  );
+                "
+              >
+                <i
+                  class="fas fa-chart-line"
+                  style="color: var(--orange-300)"
+                ></i>
+              </div>
+              <div class="recap-value" id="recap-rata-rata">0 kg</div>
+              <div class="recap-label">Rata-rata Per Hari</div>
+            </div>
+            <div class="recap-card animate-on-scroll delay-300">
+              <div
+                class="recap-icon"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(76, 175, 80, 0.2),
+                    rgba(102, 187, 106, 0.1)
+                  );
+                "
+              >
+                <i class="fas fa-database" style="color: var(--green-300)"></i>
+              </div>
+              <div class="recap-value" id="recap-total-entries">0</div>
+              <div class="recap-label">Total Data Tercatat</div>
+            </div>
+          </div>
+          <!-- Weekly Archive -->
+          <div class="card-3d animate-on-scroll" style="margin-top: 2rem">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              <i
+                class="fas fa-newspaper"
+                style="font-size: 1.3rem; color: var(--orange-400)"
+              ></i>
+              <h3
+                style="font-size: 1.15rem; color: var(--orange-300); margin: 0"
+              >
+                Arsip Kegiatan Mingguan
+              </h3>
+            </div>
+            <div id="weekly-archive">
+              <div style="text-align: center; padding: 1.5rem">
+                <div class="loading-spinner"></div>
+                <p
+                  style="
+                    color: var(--text-muted);
+                    margin-top: 0.75rem;
+                    font-size: 0.85rem;
+                  "
+                >
+                  Memuat arsip kegiatan...
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            style="text-align: center; margin-top: 1.5rem"
+            class="animate-on-scroll"
+          >
+            <a href="/dashboard.html" class="btn btn-accent"
+              ><i class="fas fa-chart-bar"></i> Lihat Dashboard Lengkap</a
+            >
+            <a
+              href="/gallery.html"
+              class="btn btn-outline"
+              style="margin-left: 0.75rem"
+              ><i class="fas fa-images"></i> Galeri Kegiatan</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA SECTION -->
+      <section class="section" style="text-align: center">
+        <div class="container animate-on-scroll">
+          <div
+            class="card-3d"
+            style="max-width: 700px; margin: 0 auto; text-align: center"
+          >
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem">
+              <span style="color: var(--green-400)">Lihat Data</span>
+              <span style="color: var(--orange-400)">Selengkapnya</span>
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem">
+              Akses dashboard data sampah dengan visualisasi interaktif dan
+              filter lengkap.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="/dashboard.html" class="btn btn-primary"
+                ><i class="fas fa-chart-pie"></i> Dashboard Data</a
+              >
+              <a href="/gallery.html" class="btn btn-accent"
+                ><i class="fas fa-images"></i> Lihat Galeri</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 0.5rem;
+              "
+            >
+              <div class="footer-logo-small" style="width: 32px; height: 32px">
+                <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo" />
+              </div>
+              <div>
+                <div
+                  style="
+                    font-weight: 700;
+                    font-size: 1rem;
+                    color: var(--green-400);
+                  "
+                >
+                  Pasukan Katak Orange
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted)">
+                  Dinas Lingkungan Hidup Kota Bekasi
+                </div>
+              </div>
+            </div>
+            <p>
+              Data pengelolaan sampah Kali Bekasi. Mewujudkan sungai bersih
+              untuk kehidupan yang lebih baik dan berkepanjangan bagi generasi
+              mendatang.
+            </p>
+            <div class="footer-logos">
+              <div class="footer-logo-small">
+                <img src="/images/Logo_Bekasi.jpeg" alt="Logo Bekasi" />
+              </div>
+              <div class="footer-logo-small">
+                <img src="/images/Logo_DLH.jpeg" alt="Logo DLH" />
+              </div>
+              <div class="footer-logo-small">
+                <img
+                  src="/images/Logo_Pasukan_Katak.jpeg"
+                  alt="Logo Pasukan Katak"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Navigasi</h4>
+            <a href="/index.html">Beranda</a>
+            <a href="/dashboard.html">Data Sampah</a>
+            <a href="/education.html">Edukasi</a>
+            <a href="/gallery.html">Galeri</a>
+          </div>
+          <div>
+            <h4>Akses</h4>
+            <a href="/login.html">Login</a>
+            <a href="/member.html">Dashboard Anggota</a>
+            <a href="/admin.html">Admin Panel</a>
+          </div>
+          <div>
+            <h4>Kontak</h4>
+            <a
+              href="https://www.instagram.com/pasukankatak_dlh/"
+              target="_blank"
+              ><i class="fab fa-instagram"></i> @pasukankatak_dlh</a
+            >
+            <a href="https://maps.app.goo.gl/2av9grpjZmDztq6j6"
+              ><i class="fas fa-map-marker-alt"></i> Basecamp River Clean Up
+              (Pasukan Katak Orange)</a
+            >
+            <a
+              href="https://www.google.com/maps/dir//Gedung+Teknis+Bersama+Kota+Bekasi,+PXCR%2B4WP,+Jl.+H.+Djaini,+RT.007%2FRW.001,+Bojong+Rawalumbu,+Kec.+Rawalumbu,+Kota+Bks,+Jawa+Barat+17116/@-6.2685184,106.9809664,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e698d8029a6b531:0x4cbe016c444fa675!2m2!1d106.9923085!2d-6.279713?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D"
+            >
+              <i class="fas fa-building"></i> Dinas Lingkungan Hidup Kota
+              Bekasi</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
+          All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/three-bg.js"></script>
+
+    <script>
+      // Load live statistics + activity recap
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const stats = await App.loadStatistics();
+          if (stats) {
+            const totalBerat = document.getElementById("stat-total-berat");
+            const totalEntries = document.getElementById("stat-total-entries");
+            const totalDays = document.getElementById("stat-total-days");
+
+            if (totalBerat) {
+              totalBerat.dataset.count = stats.total_berat;
+              totalBerat.dataset.suffix = " kg";
+            }
+            if (totalEntries) totalEntries.dataset.count = stats.total_entries;
+            if (totalDays)
+              totalDays.dataset.count = stats.total_collection_days;
+
+            // Populate Activity Recap
+            const rb = document.getElementById("recap-total-berat");
+            const rd = document.getElementById("recap-total-days");
+            const rr = document.getElementById("recap-rata-rata");
+            const re = document.getElementById("recap-total-entries");
+            if (rb)
+              rb.textContent = App.formatNumber(stats.total_berat) + " kg";
+            if (rd)
+              rd.textContent = App.formatNumber(stats.total_collection_days);
+            if (rr)
+              rr.textContent =
+                App.formatNumber(
+                  stats.rata_rata_perhari || stats.rata_rata_berat,
+                ) + " kg";
+            if (re) re.textContent = App.formatNumber(stats.total_entries);
+
+            App.initCounters();
+          }
+
+          // Load Weekly Archive
+          const data = await App.loadReports();
+          if (data && data.length) {
+            const grouped = {};
+            data.forEach((row) => {
+              const key = row.tgl || "Tanpa Tanggal";
+              if (!grouped[key]) grouped[key] = { items: [], totalBerat: 0 };
+              grouped[key].items.push(row);
+              grouped[key].totalBerat += row.berat || 0;
+            });
+            const dates = Object.keys(grouped).sort((a, b) => {
+              const pa = a.split("/");
+              const pb = b.split("/");
+              const da = new Date(pa[2], pa[1] - 1, pa[0]);
+              const db = new Date(pb[2], pb[1] - 1, pb[0]);
+              return db - da;
+            });
+            const recent = dates.slice(0, 8);
+            let html = '<div class="weekly-archive-list">';
+            recent.forEach((date) => {
+              const g = grouped[date];
+              const cats = [
+                ...new Set(g.items.map((r) => r.kategori_sampah)),
+              ].join(", ");
+              html += `<div class="archive-item">
+              <div class="archive-date"><i class="fas fa-calendar-alt"></i> ${date}</div>
+              <div class="archive-details">
+                <span><i class="fas fa-weight-hanging" style="color:var(--orange-400);"></i> ${App.formatNumber(g.totalBerat)} kg</span>
+                <span><i class="fas fa-boxes" style="color:var(--green-400);"></i> ${g.items.length} item</span>
+                <span class="archive-cats">${cats}</span>
+              </div>
+            </div>`;
+            });
+            html += "</div>";
+            document.getElementById("weekly-archive").innerHTML = html;
+          } else {
+            document.getElementById("weekly-archive").innerHTML =
+              '<p style="color:var(--text-muted);text-align:center;padding:1rem;">Belum ada data kegiatan</p>';
+          }
+        } catch (err) {
+          console.log("Stats will load with defaults");
+          App.initCounters();
+          document.getElementById("weekly-archive").innerHTML =
+            '<p style="color:var(--text-muted);text-align:center;padding:1rem;">Gagal memuat arsip</p>';
+        }
+      });
+    </script>
+  </body>
+</html>

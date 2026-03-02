@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - Pasukan Katak Orange</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+  <canvas id="three-canvas"></canvas>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo" style="
+            background: linear-gradient(
+              135deg,
+              var(--green-500),
+              var(--orange-500)
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+          ">
+        <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+      </div>
+      <div>
+        <div class="nav-title">Pasukan Katak Orange</div>
+        <div class="nav-subtitle">Admin Panel</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="/index.html" class="nav-link">Beranda</a>
+      <a href="/dashboard.html" class="nav-link">Data Sampah</a>
+      <a href="/admin.html" class="nav-link active">Admin</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-auth"></div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="page-header">
+        <h1 style="
+              background: linear-gradient(
+                135deg,
+                var(--green-300),
+                var(--orange-400)
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            ">
+          <i class="fas fa-shield-alt" style="-webkit-text-fill-color: var(--orange-400)"></i>
+          Admin Panel
+        </h1>
+        <p>Kelola seluruh database dan pantau data masuk</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Admin Stats -->
+      <div class="stats-grid animate-on-scroll">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-database"></i></div>
+          <div class="stat-number" id="admin-total" data-count="0">0</div>
+          <div class="stat-label">Total Records</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="color: var(--orange-400)">
+            <i class="fas fa-weight-hanging"></i>
+          </div>
+          <div class="stat-number" id="admin-berat" data-count="0" data-suffix=" kg">
+            0
+          </div>
+          <div class="stat-label">Total Berat</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+          <div class="stat-number" id="admin-days" data-count="0">0</div>
+          <div class="stat-label">Hari Pengumpulan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="color: var(--orange-400)">
+            <i class="fas fa-link"></i>
+          </div>
+          <div class="stat-number" style="font-size: 1rem; -webkit-text-fill-color: var(--green-400)">
+            <a href="https://docs.google.com/spreadsheets/d/1SQlPtS8enwmfqnGKixrRvjBVN63cSFFTh06Q7oXPbT8/edit"
+              target="_blank" style="color: var(--green-400)">Buka Sheet</a>
+          </div>
+          <div class="stat-label">Google Spreadsheet</div>
+        </div>
+      </div>
+
+      <!-- Admin Controls -->
+      <section class="section" style="padding-top: 2rem">
+        <div class="admin-header animate-on-scroll">
+          <h2 style="font-size: 1.3rem">
+            <i class="fas fa-table" style="color: var(--green-400)"></i>
+            Seluruh Data
+          </h2>
+          <div class="admin-actions">
+            <button onclick="refreshData()" class="btn btn-outline btn-sm">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+            <button onclick="exportCSV()" class="btn btn-accent btn-sm">
+              <i class="fas fa-download"></i> Export CSV
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-bar animate-on-scroll">
+          <div class="filter-item">
+            <label>Cari</label>
+            <input type="text" class="form-input" id="admin-search" placeholder="Cari data..."
+              oninput="filterAdmin()" />
+          </div>
+          <div class="filter-item">
+            <label>Kategori</label>
+            <select id="admin-filter-kat" onchange="filterAdmin()">
+              <option value="">Semua</option>
+              <option>Organic</option>
+              <option>Non - Organic</option>
+              <option>Residu</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Tahun</label>
+            <select id="admin-filter-year" onchange="filterAdmin()">
+              <option value="">Semua</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+              <option>2026</option>
+            </select>
+          </div>
+          <div class="filter-item" style="display: flex; align-items: flex-end">
+            <button onclick="resetAdminFilters()" class="btn btn-outline btn-sm" style="width: 100%">
+              <i class="fas fa-undo"></i> Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="data-count animate-on-scroll" id="admin-data-count">
+          Memuat...
+        </div>
+
+        <div id="admin-table" class="animate-on-scroll">
+          <div style="text-align: center; padding: 3rem">
+            <div class="loading-spinner"></div>
+            <p style="color: var(--text-muted); margin-top: 1rem">
+              Memuat database...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts Section -->
+      <section class="section" style="padding-top: 1rem">
+        <div class="charts-grid">
+          <div class="chart-card animate-on-scroll">
+            <h3><i class="fas fa-chart-pie"></i> Distribusi Kategori</h3>
+            <div class="chart-container">
+              <canvas id="admin-chart-cat"></canvas>
+            </div>
+          </div>
+          <div class="chart-card animate-on-scroll delay-100">
+            <h3><i class="fas fa-chart-bar"></i> Data per Bulan</h3>
+            <div class="chart-container">
+              <canvas id="admin-chart-month"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Akun Info -->
+      <section class="section" style="padding-top: 0">
+        <div class="card-3d animate-on-scroll" style="max-width: 600px; margin: 0 auto">
+          <h3 style="margin-bottom: 1rem; color: var(--green-300)">
+            <i class="fas fa-users-cog"></i> Informasi Akun
+          </h3>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Password</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>admin</td>
+                  <td><span class="badge badge-organic">Admin</span></td>
+                  <td>admin2026</td>
+                </tr>
+                <tr>
+                  <td>jambuxbewok</td>
+                  <td><span class="badge badge-non-organic">Member</span></td>
+                  <td>katak2018</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 1rem;
+              ">
+            <i class="fas fa-info-circle"></i> Ubah password di file
+            <code>server/index.js</code> bagian USERS.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
+        All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/three-bg.js"></script>
+  <script src="/js/charts.js"></script>
+
+  <script>
+    let adminData = [];
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      if (!Auth.requireAdmin()) return;
+
+      try {
+        // Load stats
+        const stats = await App.loadStatistics();
+        if (stats) {
+          const el1 = document.getElementById("admin-total");
+          const el2 = document.getElementById("admin-berat");
+          const el3 = document.getElementById("admin-days");
+          if (el1) el1.dataset.count = stats.total_entries;
+          if (el2) {
+            el2.dataset.count = stats.total_berat;
+            el2.dataset.suffix = " kg";
+          }
+          if (el3) el3.dataset.count = stats.total_collection_days;
+          App.initCounters();
+
+          if (stats.by_category)
+            Charts.createCategoryChart("admin-chart-cat", stats.by_category);
+          if (stats.by_month)
+            Charts.createMonthlyChart("admin-chart-month", stats.by_month);
+        }
+
+        // Load all data
+        adminData = await App.loadReports();
+        renderAdminData(adminData);
+      } catch (err) {
+        console.error("Admin load error:", err);
+      }
+    });
+
+    function renderAdminData(data) {
+      App._tableData["admin-table"] = data;
+      App.renderTable(data, "admin-table", { page: 1, perPage: 25 });
+      document.getElementById("admin-data-count").innerHTML =
+        `Total: <strong>${data.length}</strong> records`;
+    }
+
+    function filterAdmin() {
+      const search = document
+        .getElementById("admin-search")
+        .value.toLowerCase();
+      const kat = document.getElementById("admin-filter-kat").value;
+      const year = document.getElementById("admin-filter-year").value;
+
+      let filtered = [...adminData];
+      if (search) {
+        filtered = filtered.filter(
+          (r) =>
+            (r.item_sampah || "").toLowerCase().includes(search) ||
+            (r.kategori_sampah || "").toLowerCase().includes(search) ||
+            (r.tgl || "").includes(search) ||
+            (r.bulan || "").toLowerCase().includes(search),
+        );
+      }
+      if (kat) filtered = filtered.filter((r) => r.kategori_sampah === kat);
+      if (year)
+        filtered = filtered.filter(
+          (r) => {
+            if (!r.tgl) return false;
+            const parts = r.tgl.split("/");
+            return parts.length >= 3 && parts[2] === year;
+          },
+        );
+
+      renderAdminData(filtered);
+    }
+
+    function resetAdminFilters() {
+      document.getElementById("admin-search").value = "";
+      document.getElementById("admin-filter-kat").value = "";
+      document.getElementById("admin-filter-year").value = "";
+      renderAdminData(adminData);
+    }
+
+    async function refreshData() {
+      App.showToast("Refreshing data...", "success");
+      try {
+        await App.api("/api/admin/refresh", { method: "POST" });
+        adminData = await App.loadReports();
+        renderAdminData(adminData);
+        App.showToast("Data berhasil di-refresh!", "success");
+      } catch (err) {
+        App.showToast("Gagal refresh: " + err.message, "error");
+      }
+    }
+
+    function exportCSV() {
+      if (!adminData.length)
+        return App.showToast("Tidak ada data untuk di-export", "error");
+      const headers = [
+        "Tgl",
+        "Bulan",
+        "Kategori Sampah",
+        "Item Sampah",
+        "Berat",
+        "Rata Perhari",
+        "Total Berat",
+      ];
+      const rows = adminData.map((r) => [
+        r.tgl,
+        r.bulan,
+        r.kategori_sampah,
+        r.item_sampah,
+        r.berat,
+        r.rata_perhari,
+        r.total_berat,
+      ]);
+      const csv = [headers.join(","), ...rows.map((r) => r.join(","))].join(
+        "\n",
+      );
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `data_sampah_${new Date().toISOString().split("T")[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      App.showToast("CSV berhasil di-download!", "success");
+    }
+  </script>
+</body>
+
+</html>
