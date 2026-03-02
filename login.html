@@ -1,20 +1,24 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Pasukan Katak Orange</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Pasukan Katak Orange</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
+  <body>
+    <canvas id="three-canvas"></canvas>
 
-<body>
-  <canvas id="three-canvas"></canvas>
-
-  <nav class="navbar">
-    <div class="nav-brand">
-      <div class="nav-logo" style="
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div
+          class="nav-logo"
+          style="
             background: linear-gradient(
               135deg,
               var(--green-500),
@@ -24,31 +28,33 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-          ">
-        <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+          "
+        >
+          <img src="images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+        </div>
+        <div>
+          <div class="nav-title">Pasukan Katak Orange</div>
+          <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+        </div>
       </div>
-      <div>
-        <div class="nav-title">Pasukan Katak Orange</div>
-        <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Beranda</a>
+        <a href="/dashboard.html" class="nav-link">Data Sampah</a>
+        <a href="/education.html" class="nav-link">Edukasi</a>
+        <a href="/gallery.html" class="nav-link">Galeri</a>
       </div>
-    </div>
-    <div class="nav-links">
-      <a href="/index.html" class="nav-link">Beranda</a>
-      <a href="/dashboard.html" class="nav-link">Data Sampah</a>
-      <a href="/education.html" class="nav-link">Edukasi</a>
-      <a href="/gallery.html" class="nav-link">Galeri</a>
-    </div>
-    <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-auth"></div>
-  </nav>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-auth"></div>
+    </nav>
 
-  <main class="main-content">
-    <div class="login-page">
-      <div class="login-card">
-        <div style="text-align: center; margin-bottom: 1.5rem">
-          <div style="
+    <main class="main-content">
+      <div class="login-page">
+        <div class="login-card">
+          <div style="text-align: center; margin-bottom: 1.5rem">
+            <div
+              style="
                 width: 80px;
                 height: 80px;
                 border-radius: 50%;
@@ -63,76 +69,105 @@
                 font-size: 2.5rem;
                 margin: 0 auto;
                 box-shadow: 0 0 30px var(--green-glow);
-              " class="animate-float">
-            <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak"
-              style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+              "
+              class="animate-float"
+            >
+              <img
+                src="images/Logo_Pasukan_Katak.jpeg"
+                alt="Logo Pasukan Katak"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  border-radius: 50%;
+                "
+              />
+            </div>
           </div>
+          <h2>Masuk</h2>
+          <p class="subtitle">Akses dashboard Pasukan Katak Orange</p>
+
+          <div class="login-error" id="login-error"></div>
+
+          <form id="login-form">
+            <div class="form-group">
+              <label class="form-label"
+                ><i class="fas fa-user"></i> Username</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="username"
+                placeholder="Masukkan username"
+                required
+                autocomplete="username"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label"
+                ><i class="fas fa-lock"></i> Password</label
+              >
+              <input
+                type="password"
+                class="form-input"
+                id="password"
+                placeholder="Masukkan password"
+                required
+                autocomplete="current-password"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="width: 100%; justify-content: center; margin-top: 0.5rem"
+              id="login-btn"
+            >
+              <i class="fas fa-sign-in-alt"></i> Masuk
+            </button>
+          </form>
         </div>
-        <h2>Masuk</h2>
-        <p class="subtitle">Akses dashboard Pasukan Katak Orange</p>
-
-        <div class="login-error" id="login-error"></div>
-
-        <form id="login-form">
-          <div class="form-group">
-            <label class="form-label"><i class="fas fa-user"></i> Username</label>
-            <input type="text" class="form-input" id="username" placeholder="Masukkan username" required
-              autocomplete="username" />
-          </div>
-          <div class="form-group">
-            <label class="form-label"><i class="fas fa-lock"></i> Password</label>
-            <input type="password" class="form-input" id="password" placeholder="Masukkan password" required
-              autocomplete="current-password" />
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem"
-            id="login-btn">
-            <i class="fas fa-sign-in-alt"></i> Masuk
-          </button>
-        </form>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/app.js"></script>
-  <script src="/js/three-bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/three-bg.js"></script>
 
-  <script>
-    // Redirect if already logged in
-    if (Auth.isLoggedIn()) {
-      window.location.href = Auth.isAdmin() ? "/admin.html" : "/member.html";
-    }
+    <script>
+      // Redirect if already logged in
+      if (Auth.isLoggedIn()) {
+        window.location.href = Auth.isAdmin() ? "/admin.html" : "/member.html";
+      }
 
-    document
-      .getElementById("login-form")
-      .addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById("login-btn");
-        const errEl = document.getElementById("login-error");
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value;
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const btn = document.getElementById("login-btn");
+          const errEl = document.getElementById("login-error");
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value;
 
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
-        errEl.style.display = "none";
+          btn.disabled = true;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+          errEl.style.display = "none";
 
-        const result = await Auth.login(username, password);
+          const result = await Auth.login(username, password);
 
-        if (result.success) {
-          App.showToast(`Selamat datang, ${result.name}!`, "success");
-          setTimeout(() => {
-            window.location.href =
-              result.role === "admin" ? "/admin.html" : "/member.html";
-          }, 800);
-        } else {
-          errEl.textContent = result.message;
-          errEl.style.display = "block";
-          btn.disabled = false;
-          btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Masuk';
-        }
-      });
-  </script>
-</body>
-
+          if (result.success) {
+            App.showToast(`Selamat datang, ${result.name}!`, "success");
+            setTimeout(() => {
+              window.location.href =
+                result.role === "admin" ? "/admin.html" : "/member.html";
+            }, 800);
+          } else {
+            errEl.textContent = result.message;
+            errEl.style.display = "block";
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Masuk';
+          }
+        });
+    </script>
+  </body>
 </html>

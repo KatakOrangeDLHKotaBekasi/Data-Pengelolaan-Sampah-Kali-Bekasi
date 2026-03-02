@@ -1,22 +1,28 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri - Pasukan Katak Orange</title>
+    <meta
+      name="description"
+      content="Galeri kegiatan Pasukan Katak Orange dalam membersihkan Kali Bekasi. Dokumentasi aktivitas DLH Kota Bekasi."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galeri - Pasukan Katak Orange</title>
-  <meta name="description"
-    content="Galeri kegiatan Pasukan Katak Orange dalam membersihkan Kali Bekasi. Dokumentasi aktivitas DLH Kota Bekasi." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
+  <body>
+    <canvas id="three-canvas"></canvas>
 
-<body>
-  <canvas id="three-canvas"></canvas>
-
-  <nav class="navbar">
-    <div class="nav-brand">
-      <div class="nav-logo" style="
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div
+          class="nav-logo"
+          style="
             background: linear-gradient(
               135deg,
               var(--green-500),
@@ -26,31 +32,33 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-          ">
-        <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+          "
+        >
+          <img src="images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+        </div>
+        <div>
+          <div class="nav-title">Pasukan Katak Orange</div>
+          <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+        </div>
       </div>
-      <div>
-        <div class="nav-title">Pasukan Katak Orange</div>
-        <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Beranda</a>
+        <a href="/dashboard.html" class="nav-link">Data Sampah</a>
+        <a href="/education.html" class="nav-link">Edukasi</a>
+        <a href="/gallery.html" class="nav-link active">Galeri</a>
       </div>
-    </div>
-    <div class="nav-links">
-      <a href="/index.html" class="nav-link">Beranda</a>
-      <a href="/dashboard.html" class="nav-link">Data Sampah</a>
-      <a href="/education.html" class="nav-link">Edukasi</a>
-      <a href="/gallery.html" class="nav-link active">Galeri</a>
-    </div>
-    <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-auth"></div>
-  </nav>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-auth"></div>
+    </nav>
 
-  <main class="main-content">
-    <div class="container">
-      <!-- Header -->
-      <div class="page-header animate-on-scroll">
-        <h1 style="
+    <main class="main-content">
+      <div class="container">
+        <!-- Header -->
+        <div class="page-header animate-on-scroll">
+          <h1
+            style="
               background: linear-gradient(
                 135deg,
                 var(--green-300),
@@ -59,42 +67,55 @@
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
-            ">
-          <i class="fas fa-images" style="-webkit-text-fill-color: var(--orange-400)"></i>
-          Galeri Aktivitas
-        </h1>
-        <p>Dokumentasi kegiatan Pasukan Katak Orange di Kali Bekasi</p>
-        <div class="section-divider"></div>
-      </div>
-
-      <!-- Local Photo Gallery -->
-      <section class="section" style="padding-top: 1rem">
-        <div class="section-title animate-on-scroll">
-          <h2>Dokumentasi <span class="accent">Kegiatan</span></h2>
+            "
+          >
+            <i
+              class="fas fa-images"
+              style="-webkit-text-fill-color: var(--orange-400)"
+            ></i>
+            Galeri Aktivitas
+          </h1>
+          <p>Dokumentasi kegiatan Pasukan Katak Orange di Kali Bekasi</p>
           <div class="section-divider"></div>
         </div>
-        <div class="gallery-grid">
-          <!-- Photo 1: Team -->
-          <div class="gallery-item animate-on-scroll">
-            <img src="/images/Tim_Pasukan_Katak_Bersiap.jpeg" alt="Tim Pasukan Katak Orange" loading="lazy" />
-            <div class="gallery-overlay">
-              <h4>Tim Pasukan Katak Orange</h4>
-              <p>Anggota tim bersiap untuk kegiatan pembersihan</p>
-            </div>
+
+        <!-- Local Photo Gallery -->
+        <section class="section" style="padding-top: 1rem">
+          <div class="section-title animate-on-scroll">
+            <h2>Dokumentasi <span class="accent">Kegiatan</span></h2>
+            <div class="section-divider"></div>
           </div>
-          <!-- Photo 2: Activity -->
-          <div class="gallery-item animate-on-scroll delay-100">
-            <img src="/images/Dokumentasi_Kegiatan.jpeg" alt="Kegiatan Pasukan Katak" loading="lazy" />
-            <div class="gallery-overlay">
-              <h4>Aksi Pembersihan Kali Bekasi</h4>
-              <p>
-                Kegiatan rutin pembersihan sampah di sepanjang aliran sungai
-              </p>
+          <div class="gallery-grid">
+            <!-- Photo 1: Team -->
+            <div class="gallery-item animate-on-scroll">
+              <img
+                src="images/Tim_Pasukan_Katak_Bersiap.jpeg"
+                alt="Tim Pasukan Katak Orange"
+                loading="lazy"
+              />
+              <div class="gallery-overlay">
+                <h4>Tim Pasukan Katak Orange</h4>
+                <p>Anggota tim bersiap untuk kegiatan pembersihan</p>
+              </div>
             </div>
-          </div>
-          <!-- Photo 3: Logo/Identity -->
-          <div class="gallery-item animate-on-scroll delay-200">
-            <div style="
+            <!-- Photo 2: Activity -->
+            <div class="gallery-item animate-on-scroll delay-100">
+              <img
+                src="images/Dokumentasi_Kegiatan.jpeg"
+                alt="Kegiatan Pasukan Katak"
+                loading="lazy"
+              />
+              <div class="gallery-overlay">
+                <h4>Aksi Pembersihan Kali Bekasi</h4>
+                <p>
+                  Kegiatan rutin pembersihan sampah di sepanjang aliran sungai
+                </p>
+              </div>
+            </div>
+            <!-- Photo 3: Logo/Identity -->
+            <div class="gallery-item animate-on-scroll delay-200">
+              <div
+                style="
                   width: 100%;
                   height: 100%;
                   background: linear-gradient(
@@ -107,29 +128,40 @@
                   align-items: center;
                   justify-content: center;
                   gap: 0.75rem;
-                ">
-              <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" style="
+                "
+              >
+                <img
+                  src="images/Logo_Pasukan_Katak.jpeg"
+                  alt="Logo Pasukan Katak"
+                  style="
                     width: 100px;
                     height: 100px;
                     border-radius: 50%;
                     object-fit: cover;
                     border: 3px solid rgba(255, 152, 0, 0.5);
-                  " />
-              <span style="
+                  "
+                />
+                <span
+                  style="
                     font-size: 1rem;
                     font-weight: 700;
                     color: var(--orange-400);
-                  ">Pasukan Katak Orange</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted)">DLH Kota Bekasi</span>
+                  "
+                  >Pasukan Katak Orange</span
+                >
+                <span style="font-size: 0.8rem; color: var(--text-muted)"
+                  >DLH Kota Bekasi</span
+                >
+              </div>
+              <div class="gallery-overlay">
+                <h4>Pasukan Katak Orange</h4>
+                <p>Simbol keberanian dalam misi lingkungan</p>
+              </div>
             </div>
-            <div class="gallery-overlay">
-              <h4>Pasukan Katak Orange</h4>
-              <p>Simbol keberanian dalam misi lingkungan</p>
-            </div>
-          </div>
-          <!-- Photo 4: Partners -->
-          <div class="gallery-item animate-on-scroll delay-300">
-            <div style="
+            <!-- Photo 4: Partners -->
+            <div class="gallery-item animate-on-scroll delay-300">
+              <div
+                style="
                   width: 100%;
                   height: 100%;
                   background: linear-gradient(
@@ -143,53 +175,70 @@
                   justify-content: center;
                   gap: 1rem;
                   padding: 1rem;
-                ">
-              <div style="display: flex; gap: 1rem; align-items: center">
-                <img src="/images/Logo_Bekasi.jpeg" alt="Logo Bekasi" style="
+                "
+              >
+                <div style="display: flex; gap: 1rem; align-items: center">
+                  <img
+                    src="images/Logo_Bekasi.jpeg"
+                    alt="Logo Bekasi"
+                    style="
                       width: 100px;
                       height: 100px;
                       border-radius: 50%;
                       object-fit: cover;
                       border: 2px solid rgba(76, 175, 80, 0.4);
-                    " />
-                <img src="/images/Logo_DLH.jpeg" alt="Logo DLH" style="
+                    "
+                  />
+                  <img
+                    src="images/Logo_DLH.jpeg"
+                    alt="Logo DLH"
+                    style="
                       width: 100px;
                       height: 100px;
                       border-radius: 50%;
                       object-fit: cover;
                       border: 2px solid rgba(76, 175, 80, 0.4);
-                    " />
-                <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Katak" style="
+                    "
+                  />
+                  <img
+                    src="images/Logo_Pasukan_Katak.jpeg"
+                    alt="Logo Katak"
+                    style="
                       width: 100px;
                       height: 100px;
                       border-radius: 50%;
                       object-fit: cover;
                       border: 2px solid rgba(255, 152, 0, 0.4);
-                    " />
-              </div>
-              <span style="
+                    "
+                  />
+                </div>
+                <span
+                  style="
                     font-size: 0.9rem;
                     font-weight: 600;
                     color: var(--green-400);
-                  ">Kota Bekasi × DLH × Pasukan Katak</span>
-            </div>
-            <div class="gallery-overlay">
-              <h4>Kerjasama & Dukungan</h4>
-              <p>Didukung oleh Pemerintah Kota Bekasi dan DLH</p>
+                  "
+                  >Kota Bekasi × DLH × Pasukan Katak</span
+                >
+              </div>
+              <div class="gallery-overlay">
+                <h4>Kerjasama & Dukungan</h4>
+                <p>Didukung oleh Pemerintah Kota Bekasi dan DLH</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Instagram Feed Section - Berita Terbaru -->
-      <section class="section" style="padding-top: 0">
-        <div class="section-title animate-on-scroll">
-          <h2>Berita <span class="accent">Terbaru</span></h2>
-          <div class="section-divider"></div>
-          <p>
-            <i class="fab fa-instagram" style="color: var(--orange-400)"></i>
-            Kegiatan terbaru dari Pasukan Katak Orange
-            <span style="
+        <!-- Instagram Feed Section - Berita Terbaru -->
+        <section class="section" style="padding-top: 0">
+          <div class="section-title animate-on-scroll">
+            <h2>Berita <span class="accent">Terbaru</span></h2>
+            <div class="section-divider"></div>
+            <p>
+              <i class="fab fa-instagram" style="color: var(--orange-400)"></i>
+              Kegiatan terbaru dari Pasukan Katak Orange
+              <span
+                style="
                   display: inline-block;
                   background: rgba(76, 175, 80, 0.15);
                   border: 1px solid rgba(76, 175, 80, 0.3);
@@ -200,62 +249,84 @@
                   margin-left: 0.5rem;
                   font-weight: 600;
                   vertical-align: middle;
-                "><i class="fas fa-sync-alt" style="margin-right: 0.2rem"></i>
-              Auto-update Harian</span>
-          </p>
-        </div>
+                "
+                ><i class="fas fa-sync-alt" style="margin-right: 0.2rem"></i>
+                Auto-update Harian</span
+              >
+            </p>
+          </div>
 
-        <!-- Instagram Feed Grid -->
-        <div class="gallery-grid" id="instagram-feed">
-          <!-- Loading placeholder -->
-          <div class="gallery-item animate-on-scroll" id="ig-loading" style="
+          <!-- Instagram Feed Grid -->
+          <div class="gallery-grid" id="instagram-feed">
+            <!-- Loading placeholder -->
+            <div
+              class="gallery-item animate-on-scroll"
+              id="ig-loading"
+              style="
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 aspect-ratio: 4/3;
                 grid-column: 1 / -1;
                 background: var(--bg-card);
-              ">
-            <div style="text-align: center; padding: 2rem">
-              <div class="loading-spinner"></div>
-              <p style="
+              "
+            >
+              <div style="text-align: center; padding: 2rem">
+                <div class="loading-spinner"></div>
+                <p
+                  style="
                     color: var(--text-muted);
                     margin-top: 1rem;
                     font-size: 0.9rem;
-                  ">
-                <i class="fab fa-instagram"></i> Memuat berita dari
-                Instagram...
-              </p>
+                  "
+                >
+                  <i class="fab fa-instagram"></i> Memuat berita dari
+                  Instagram...
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Instagram Info Banner -->
-        <div class="ig-info-banner animate-on-scroll" style="margin-top: 1.5rem">
-          <i class="fab fa-instagram"></i>
-          <div>
-            <p>
-              <strong>Terhubung dengan Instagram @pasukankatak_dlh</strong>
-            </p>
-            <p style="
+          <!-- Instagram Info Banner -->
+          <div
+            class="ig-info-banner animate-on-scroll"
+            style="margin-top: 1.5rem"
+          >
+            <i class="fab fa-instagram"></i>
+            <div>
+              <p>
+                <strong>Terhubung dengan Instagram @pasukankatak_dlh</strong>
+              </p>
+              <p
+                style="
                   font-size: 0.8rem;
                   color: var(--text-muted);
                   margin-top: 0.25rem;
-                ">
-              Ini adalah rekap kegiatan Pasukan Katak Orange periode mingguan
-            </p>
+                "
+              >
+                Ini adalah rekap kegiatan Pasukan Katak Orange periode mingguan
+              </p>
+            </div>
+            <a
+              href="https://www.instagram.com/pasukankatak_dlh/"
+              target="_blank"
+              class="btn btn-accent btn-sm"
+              style="margin-left: auto"
+            >
+              <i class="fab fa-instagram"></i> Follow
+            </a>
           </div>
-          <a href="https://www.instagram.com/pasukankatak_dlh/" target="_blank" class="btn btn-accent btn-sm"
-            style="margin-left: auto">
-            <i class="fab fa-instagram"></i> Follow
-          </a>
-        </div>
-      </section>
+        </section>
 
-      <!-- Instagram CTA -->
-      <section class="section" style="text-align: center; padding-top: 0">
-        <div class="card-3d animate-on-scroll" style="max-width: 600px; margin: 0 auto">
-          <i class="fab fa-instagram" style="
+        <!-- Instagram CTA -->
+        <section class="section" style="text-align: center; padding-top: 0">
+          <div
+            class="card-3d animate-on-scroll"
+            style="max-width: 600px; margin: 0 auto"
+          >
+            <i
+              class="fab fa-instagram"
+              style="
                 font-size: 3rem;
                 background: linear-gradient(
                   45deg,
@@ -274,81 +345,87 @@
                 background-clip: text;
                 margin-bottom: 1rem;
                 display: block;
-              "></i>
-          <h3 style="margin-bottom: 0.5rem">Ikuti Kami di Instagram</h3>
-          <p style="
+              "
+            ></i>
+            <h3 style="margin-bottom: 0.5rem">Ikuti Kami di Instagram</h3>
+            <p
+              style="
                 color: var(--text-secondary);
                 margin-bottom: 1.5rem;
                 font-size: 0.95rem;
-              ">
-            Lihat lebih banyak foto dan video kegiatan Pasukan Katak Orange
-          </p>
-          <a href="https://www.instagram.com/pasukankatak_dlh/" target="_blank" class="btn btn-accent btn-lg">
-            <i class="fab fa-instagram"></i> @pasukankatak_dlh
-          </a>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
-        All rights reserved.
+              "
+            >
+              Lihat lebih banyak foto dan video kegiatan Pasukan Katak Orange
+            </p>
+            <a
+              href="https://www.instagram.com/pasukankatak_dlh/"
+              target="_blank"
+              class="btn btn-accent btn-lg"
+            >
+              <i class="fab fa-instagram"></i> @pasukankatak_dlh
+            </a>
+          </div>
+        </section>
       </div>
-    </div>
-  </footer>
+    </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/app.js"></script>
-  <script src="/js/three-bg.js"></script>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
+          All rights reserved.
+        </div>
+      </div>
+    </footer>
 
-  <script>
-    // Format relative time in Indonesian
-    function timeAgo(dateStr) {
-      const date = new Date(dateStr);
-      const now = new Date();
-      const diff = now - date;
-      const minutes = Math.floor(diff / 60000);
-      const hours = Math.floor(diff / 3600000);
-      const days = Math.floor(diff / 86400000);
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/three-bg.js"></script>
 
-      if (minutes < 60) return `${minutes} menit lalu`;
-      if (hours < 24) return `${hours} jam lalu`;
-      if (days < 7) return `${days} hari lalu`;
-      return date.toLocaleDateString("id-ID", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      });
-    }
+    <script>
+      // Format relative time in Indonesian
+      function timeAgo(dateStr) {
+        const date = new Date(dateStr);
+        const now = new Date();
+        const diff = now - date;
+        const minutes = Math.floor(diff / 60000);
+        const hours = Math.floor(diff / 3600000);
+        const days = Math.floor(diff / 86400000);
 
-    // Load Instagram feed from API
-    document.addEventListener("DOMContentLoaded", async () => {
-      const grid = document.getElementById("instagram-feed");
-      const loadingEl = document.getElementById("ig-loading");
+        if (minutes < 60) return `${minutes} menit lalu`;
+        if (hours < 24) return `${hours} jam lalu`;
+        if (days < 7) return `${days} hari lalu`;
+        return date.toLocaleDateString("id-ID", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        });
+      }
 
-      try {
-        const res = await fetch("/api/instagram/feed");
-        const result = await res.json();
+      // Load Instagram feed from API
+      document.addEventListener("DOMContentLoaded", async () => {
+        const grid = document.getElementById("instagram-feed");
+        const loadingEl = document.getElementById("ig-loading");
 
-        if (result.success && result.data && result.data.length) {
-          let html = "";
-          result.data.slice(0, 9).forEach((post, i) => {
-            const delayClass = i > 0 ? `delay-${Math.min(i, 5) * 100}` : "";
-            const timeLabel = post.timestamp ? timeAgo(post.timestamp) : "";
-            const caption = post.caption || "Kegiatan Pasukan Katak Orange";
-            const shortCaption =
-              caption.substring(0, 100) +
-              (caption.length > 100 ? "..." : "");
+        try {
+          const res = await fetch("/api/instagram/feed");
+          const result = await res.json();
 
-            if (
-              post.media_type === "IMAGE" ||
-              post.media_type === "CAROUSEL_ALBUM"
-            ) {
-              html += `
+          if (result.success && result.data && result.data.length) {
+            let html = "";
+            result.data.slice(0, 9).forEach((post, i) => {
+              const delayClass = i > 0 ? `delay-${Math.min(i, 5) * 100}` : "";
+              const timeLabel = post.timestamp ? timeAgo(post.timestamp) : "";
+              const caption = post.caption || "Kegiatan Pasukan Katak Orange";
+              const shortCaption =
+                caption.substring(0, 100) + (caption.length > 100 ? "..." : "");
+
+              if (
+                post.media_type === "IMAGE" ||
+                post.media_type === "CAROUSEL_ALBUM"
+              ) {
+                html += `
                   <div class="gallery-item animate-on-scroll ${delayClass}">
                     <a href="${post.permalink}" target="_blank" rel="noopener" style="display:block;width:100%;height:100%;">
                       <img src="${post.media_url}" alt="${caption.substring(0, 50)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
@@ -361,9 +438,9 @@
                       <p style="font-size:0.8rem;color:rgba(255,255,255,0.85);line-height:1.4;">${shortCaption}</p>
                     </div>
                   </div>`;
-            } else if (post.media_type === "VIDEO") {
-              const thumb = post.thumbnail_url || post.media_url;
-              html += `
+              } else if (post.media_type === "VIDEO") {
+                const thumb = post.thumbnail_url || post.media_url;
+                html += `
                   <div class="gallery-item animate-on-scroll ${delayClass}">
                     <a href="${post.permalink}" target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:relative;">
                       <img src="${thumb}" alt="Video" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
@@ -379,24 +456,23 @@
                       <p style="font-size:0.8rem;color:rgba(255,255,255,0.85);line-height:1.4;">${shortCaption}</p>
                     </div>
                   </div>`;
-            }
-          });
+              }
+            });
 
-          if (html) {
-            grid.innerHTML = html;
-          } else {
-            grid.innerHTML = `
+            if (html) {
+              grid.innerHTML = html;
+            } else {
+              grid.innerHTML = `
                 <div style="grid-column:1/-1;text-align:center;padding:3rem;">
                   <i class="fab fa-instagram" style="font-size:2.5rem;color:var(--text-muted);margin-bottom:1rem;display:block;"></i>
                   <p style="color:var(--text-muted);">Belum ada postingan terbaru dari Instagram.</p>
                 </div>`;
-          }
-        } else {
-          // No data or error — show graceful message
-          const msg =
-            result.message ||
-            "Tidak dapat memuat feed Instagram saat ini.";
-          grid.innerHTML = `
+            }
+          } else {
+            // No data or error — show graceful message
+            const msg =
+              result.message || "Tidak dapat memuat feed Instagram saat ini.";
+            grid.innerHTML = `
               <div style="grid-column:1/-1;text-align:center;padding:3rem;">
                 <i class="fab fa-instagram" style="font-size:2.5rem;color:var(--text-muted);margin-bottom:1rem;display:block;"></i>
                 <p style="color:var(--text-secondary);margin-bottom:0.5rem;">Feed Instagram tidak tersedia</p>
@@ -405,18 +481,17 @@
                   <i class="fab fa-instagram"></i> Kunjungi Instagram
                 </a>
               </div>`;
-        }
-      } catch (err) {
-        console.error("Instagram fetch error:", err);
-        grid.innerHTML = `
+          }
+        } catch (err) {
+          console.error("Instagram fetch error:", err);
+          grid.innerHTML = `
             <div style="grid-column:1/-1;text-align:center;padding:3rem;">
               <i class="fab fa-instagram" style="font-size:2.5rem;color:var(--text-muted);margin-bottom:1rem;display:block;"></i>
               <p style="color:var(--text-secondary);">Gagal memuat feed Instagram.</p>
               <p style="color:var(--text-muted);font-size:0.85rem;">Pastikan server berjalan dan koneksi internet tersedia.</p>
             </div>`;
-      }
-    });
-  </script>
-</body>
-
+        }
+      });
+    </script>
+  </body>
 </html>

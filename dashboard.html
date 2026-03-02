@@ -1,22 +1,28 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Data Sampah - Pasukan Katak Orange</title>
+    <meta
+      name="description"
+      content="Visualisasi data pengelolaan sampah Kali Bekasi - Dashboard interaktif dengan grafik dan tabel."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Data Sampah - Pasukan Katak Orange</title>
-  <meta name="description"
-    content="Visualisasi data pengelolaan sampah Kali Bekasi - Dashboard interaktif dengan grafik dan tabel." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
+  <body>
+    <canvas id="three-canvas"></canvas>
 
-<body>
-  <canvas id="three-canvas"></canvas>
-
-  <nav class="navbar">
-    <div class="nav-brand">
-      <div class="nav-logo" style="
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div
+          class="nav-logo"
+          style="
             background: linear-gradient(
               135deg,
               var(--green-500),
@@ -26,31 +32,33 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-          ">
-        <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+          "
+        >
+          <img src="images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+        </div>
+        <div>
+          <div class="nav-title">Pasukan Katak Orange</div>
+          <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+        </div>
       </div>
-      <div>
-        <div class="nav-title">Pasukan Katak Orange</div>
-        <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Beranda</a>
+        <a href="/dashboard.html" class="nav-link active">Data Sampah</a>
+        <a href="/education.html" class="nav-link">Edukasi</a>
+        <a href="/gallery.html" class="nav-link">Galeri</a>
       </div>
-    </div>
-    <div class="nav-links">
-      <a href="/index.html" class="nav-link">Beranda</a>
-      <a href="/dashboard.html" class="nav-link active">Data Sampah</a>
-      <a href="/education.html" class="nav-link">Edukasi</a>
-      <a href="/gallery.html" class="nav-link">Galeri</a>
-    </div>
-    <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-auth"></div>
-  </nav>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-auth"></div>
+    </nav>
 
-  <main class="main-content">
-    <div class="container">
-      <!-- Page Header -->
-      <div class="page-header animate-on-scroll">
-        <h1 style="
+    <main class="main-content">
+      <div class="container">
+        <!-- Page Header -->
+        <div class="page-header animate-on-scroll">
+          <h1
+            style="
               background: linear-gradient(
                 135deg,
                 var(--green-300),
@@ -59,363 +67,471 @@
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
-            ">
-          <i class="fas fa-chart-bar" style="-webkit-text-fill-color: var(--green-400)"></i>
-          Dashboard Data Sampah
-        </h1>
-        <p>
-          Visualisasi data pengelolaan sampah Kali Bekasi 
-        </p>
-        <div class="section-divider"></div>
-      </div>
-
-      <!-- Statistics Cards -->
-      <div class="stats-grid animate-on-scroll">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-weight-hanging"></i></div>
-          <div class="stat-number" id="dash-total-berat" data-count="0" data-suffix=" kg">Memuat...</div>
-          <div class="stat-label">Total Berat Sampah</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="color: var(--orange-400)"><i class="fas fa-database"></i></div>
-          <div class="stat-number" id="dash-total-entries" data-count="0">Memuat...</div>
-          <div class="stat-label">Total Data Tercatat</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-          <div class="stat-number" id="dash-total-days" data-count="0">Memuat...</div>
-          <div class="stat-label">Hari Pengumpulan</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="color: var(--orange-400)"><i class="fas fa-chart-line"></i></div>
-          <div class="stat-number" id="dash-rata-rata" data-count="0" data-suffix=" kg">Memuat...</div>
-          <div class="stat-label">Rata-rata Berat</div>
-        </div>
-      </div>
-
-      <!-- Charts Section -->
-      <section class="section" style="padding-top: 2rem">
-        <div class="section-title animate-on-scroll">
-          <h2>Visualisasi <span class="accent">Data</span></h2>
-          <div class="section-divider"></div>
-        </div>
-        <div class="charts-grid">
-          <div class="chart-card animate-on-scroll">
-            <h3><i class="fas fa-chart-pie"></i> Komposisi Kategori Sampah</h3>
-            <div class="chart-container"><canvas id="chart-category"></canvas></div>
-          </div>
-          <div class="chart-card animate-on-scroll delay-100">
-            <h3><i class="fas fa-chart-bar"></i> Berat Sampah per Bulan</h3>
-            <div class="chart-container"><canvas id="chart-monthly"></canvas></div>
-          </div>
-          <div class="chart-card animate-on-scroll delay-200">
-            <h3><i class="fas fa-chart-line"></i> Tren per Tahun</h3>
-            <div class="chart-container"><canvas id="chart-yearly"></canvas></div>
-          </div>
-          <div class="chart-card animate-on-scroll delay-300">
-            <h3><i class="fas fa-chart-bar"></i> Jenis Item Sampah (Top 8)</h3>
-            <div class="chart-container"><canvas id="chart-items"></canvas></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Filters & Data Table -->
-      <section class="section" style="padding-top: 1rem">
-        <div class="section-title animate-on-scroll">
-          <h2>Tabel <span class="accent">Data</span></h2>
+            "
+          >
+            <i
+              class="fas fa-chart-bar"
+              style="-webkit-text-fill-color: var(--green-400)"
+            ></i>
+            Dashboard Data Sampah
+          </h1>
+          <p>Visualisasi data pengelolaan sampah Kali Bekasi</p>
           <div class="section-divider"></div>
         </div>
 
-        <!-- Filters -->
-        <div class="filters-bar animate-on-scroll">
-          <div class="filter-item">
-            <label>Tanggal</label>
-            <input type="text" id="filter-tgl" placeholder="cth: 30/04/2021" class="filter-date-input"
-              oninput="applyFilters()">
+        <!-- Statistics Cards -->
+        <div class="stats-grid animate-on-scroll">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-weight-hanging"></i></div>
+            <div
+              class="stat-number"
+              id="dash-total-berat"
+              data-count="0"
+              data-suffix=" kg"
+            >
+              Memuat...
+            </div>
+            <div class="stat-label">Total Berat Sampah</div>
           </div>
-          <div class="filter-item">
-            <label>Bulan</label>
-            <select id="filter-bulan" onchange="applyFilters()">
-              <option value="">Semua Bulan</option>
-              <option>Januari</option>
-              <option>Februari</option>
-              <option>Maret</option>
-              <option>April</option>
-              <option>Mei</option>
-              <option>Juni</option>
-              <option>Juli</option>
-              <option>Agustus</option>
-              <option>September</option>
-              <option>Oktober</option>
-              <option>November</option>
-              <option>Desember</option>
-            </select>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: var(--orange-400)">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="stat-number" id="dash-total-entries" data-count="0">
+              Memuat...
+            </div>
+            <div class="stat-label">Total Data Tercatat</div>
           </div>
-          <div class="filter-item">
-            <label>Kategori</label>
-            <select id="filter-kategori" onchange="applyFilters()">
-              <option value="">Semua Kategori</option>
-              <option value="Organic">Organic</option>
-              <option value="Non - Organic">Non-Organic</option>
-              <option value="Residu">Residu</option>
-            </select>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="stat-number" id="dash-total-days" data-count="0">
+              Memuat...
+            </div>
+            <div class="stat-label">Hari Pengumpulan</div>
           </div>
-          <div class="filter-item">
-            <label>Tahun</label>
-            <select id="filter-tahun" onchange="applyFilters()">
-              <option value="">Semua Tahun</option>
-              <option>2018</option>
-              <option>2019</option>
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
-              <option>2026</option>
-            </select>
-          </div>
-          <div class="filter-item" style="display: flex; align-items: flex-end">
-            <button onclick="resetFilters()" class="btn btn-outline btn-sm" style="width: 100%">
-              <i class="fas fa-undo"></i> Reset
-            </button>
+          <div class="stat-card">
+            <div class="stat-icon" style="color: var(--orange-400)">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div
+              class="stat-number"
+              id="dash-rata-rata"
+              data-count="0"
+              data-suffix=" kg"
+            >
+              Memuat...
+            </div>
+            <div class="stat-label">Rata-rata Berat</div>
           </div>
         </div>
 
-        <!-- Data Count -->
-        <div class="data-count animate-on-scroll" id="data-count" style="margin-bottom: 1rem">
-          Memuat data...
-        </div>
+        <!-- Charts Section -->
+        <section class="section" style="padding-top: 2rem">
+          <div class="section-title animate-on-scroll">
+            <h2>Visualisasi <span class="accent">Data</span></h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="charts-grid">
+            <div class="chart-card animate-on-scroll">
+              <h3>
+                <i class="fas fa-chart-pie"></i> Komposisi Kategori Sampah
+              </h3>
+              <div class="chart-container">
+                <canvas id="chart-category"></canvas>
+              </div>
+            </div>
+            <div class="chart-card animate-on-scroll delay-100">
+              <h3><i class="fas fa-chart-bar"></i> Berat Sampah per Bulan</h3>
+              <div class="chart-container">
+                <canvas id="chart-monthly"></canvas>
+              </div>
+            </div>
+            <div class="chart-card animate-on-scroll delay-200">
+              <h3><i class="fas fa-chart-line"></i> Tren per Tahun</h3>
+              <div class="chart-container">
+                <canvas id="chart-yearly"></canvas>
+              </div>
+            </div>
+            <div class="chart-card animate-on-scroll delay-300">
+              <h3>
+                <i class="fas fa-chart-bar"></i> Jenis Item Sampah (Top 8)
+              </h3>
+              <div class="chart-container">
+                <canvas id="chart-items"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <!-- Table -->
-        <div class="animate-on-scroll" id="data-table">
-          <div style="text-align: center; padding: 3rem">
-            <div class="loading-spinner"></div>
-            <p style="color: var(--text-muted); margin-top: 1rem">
-              Memuat data dari Google Sheets...
+        <!-- Filters & Data Table -->
+        <section class="section" style="padding-top: 1rem">
+          <div class="section-title animate-on-scroll">
+            <h2>Tabel <span class="accent">Data</span></h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <!-- Filters -->
+          <div class="filters-bar animate-on-scroll">
+            <div class="filter-item">
+              <label>Tanggal</label>
+              <input
+                type="text"
+                id="filter-tgl"
+                placeholder="cth: 30/04/2021"
+                class="filter-date-input"
+                oninput="applyFilters()"
+              />
+            </div>
+            <div class="filter-item">
+              <label>Bulan</label>
+              <select id="filter-bulan" onchange="applyFilters()">
+                <option value="">Semua Bulan</option>
+                <option>Januari</option>
+                <option>Februari</option>
+                <option>Maret</option>
+                <option>April</option>
+                <option>Mei</option>
+                <option>Juni</option>
+                <option>Juli</option>
+                <option>Agustus</option>
+                <option>September</option>
+                <option>Oktober</option>
+                <option>November</option>
+                <option>Desember</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label>Kategori</label>
+              <select id="filter-kategori" onchange="applyFilters()">
+                <option value="">Semua Kategori</option>
+                <option value="Organic">Organic</option>
+                <option value="Non - Organic">Non-Organic</option>
+                <option value="Residu">Residu</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label>Tahun</label>
+              <select id="filter-tahun" onchange="applyFilters()">
+                <option value="">Semua Tahun</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+              </select>
+            </div>
+            <div
+              class="filter-item"
+              style="display: flex; align-items: flex-end"
+            >
+              <button
+                onclick="resetFilters()"
+                class="btn btn-outline btn-sm"
+                style="width: 100%"
+              >
+                <i class="fas fa-undo"></i> Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Data Count -->
+          <div
+            class="data-count animate-on-scroll"
+            id="data-count"
+            style="margin-bottom: 1rem"
+          >
+            Memuat data...
+          </div>
+
+          <!-- Table -->
+          <div class="animate-on-scroll" id="data-table">
+            <div style="text-align: center; padding: 3rem">
+              <div class="loading-spinner"></div>
+              <p style="color: var(--text-muted); margin-top: 1rem">
+                Memuat data dari Google Sheets...
+              </p>
+            </div>
+          </div>
+
+          <!-- Summary Row: Total Berat & Rata-rata -->
+          <div
+            class="summary-row animate-on-scroll"
+            id="summary-row"
+            style="display: none"
+          >
+            <div class="summary-item">
+              <i class="fas fa-weight-hanging"></i>
+              <span
+                >Total Berat:
+                <strong id="summary-total-berat">0</strong> kg</span
+              >
+            </div>
+            <div class="summary-item">
+              <i class="fas fa-chart-line"></i>
+              <span
+                >Rata-rata Berat:
+                <strong id="summary-rata-rata">0</strong> kg</span
+              >
+            </div>
+            <div class="summary-item">
+              <i class="fas fa-database"></i>
+              <span
+                >Jumlah Data: <strong id="summary-total-data">0</strong></span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Spreadsheet Link -->
+        <section class="section" style="padding-top: 0; text-align: center">
+          <div
+            class="card-3d animate-on-scroll"
+            style="max-width: 600px; margin: 0 auto; text-align: center"
+          >
+            <i
+              class="fas fa-table"
+              style="
+                font-size: 2rem;
+                color: var(--green-400);
+                margin-bottom: 1rem;
+                display: block;
+              "
+            ></i>
+            <h3 style="margin-bottom: 0.5rem">Sumber Data</h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+              "
+            >
+              Data di atas bersumber langsung dari Google Spreadsheet resmi
+              Pasukan Katak Orange.
             </p>
+            <a
+              href="https://docs.google.com/spreadsheets/d/1SQlPtS8enwmfqnGKixrRvjBVN63cSFFTh06Q7oXPbT8/edit?gid=0#gid=0"
+              target="_blank"
+              class="btn btn-accent btn-sm"
+            >
+              <i class="fas fa-external-link-alt"></i> Buka Google Spreadsheet
+            </a>
           </div>
-        </div>
-
-        <!-- Summary Row: Total Berat & Rata-rata -->
-        <div class="summary-row animate-on-scroll" id="summary-row" style="display:none;">
-          <div class="summary-item">
-            <i class="fas fa-weight-hanging"></i>
-            <span>Total Berat: <strong id="summary-total-berat">0</strong> kg</span>
-          </div>
-          <div class="summary-item">
-            <i class="fas fa-chart-line"></i>
-            <span>Rata-rata Berat: <strong id="summary-rata-rata">0</strong> kg</span>
-          </div>
-          <div class="summary-item">
-            <i class="fas fa-database"></i>
-            <span>Jumlah Data: <strong id="summary-total-data">0</strong></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Spreadsheet Link -->
-      <section class="section" style="padding-top: 0; text-align: center">
-        <div class="card-3d animate-on-scroll" style="max-width: 600px; margin: 0 auto; text-align: center">
-          <i class="fas fa-table"
-            style="font-size: 2rem; color: var(--green-400); margin-bottom: 1rem; display: block;"></i>
-          <h3 style="margin-bottom: 0.5rem">Sumber Data</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
-            Data di atas bersumber langsung dari Google Spreadsheet resmi Pasukan Katak Orange.
-          </p>
-          <a href="https://docs.google.com/spreadsheets/d/1SQlPtS8enwmfqnGKixrRvjBVN63cSFFTh06Q7oXPbT8/edit?gid=0#gid=0"
-            target="_blank" class="btn btn-accent btn-sm">
-            <i class="fas fa-external-link-alt"></i> Buka Google Spreadsheet
-          </a>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
-        All rights reserved.
+        </section>
       </div>
-    </div>
-  </footer>
+    </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/app.js"></script>
-  <script src="/js/three-bg.js"></script>
-  <script src="/js/charts.js"></script>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
+          All rights reserved.
+        </div>
+      </div>
+    </footer>
 
-  <script>
-    /* ========================================
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/three-bg.js"></script>
+    <script src="js/charts.js"></script>
+
+    <script>
+      /* ========================================
        DASHBOARD - Full Spreadsheet Integration
        All charts, stats, totals, averages update with filters
        ======================================== */
 
-    let chartInstances = {};  // Store chart instances for destroy/recreate
-    let filterDebounce = null;
+      let chartInstances = {}; // Store chart instances for destroy/recreate
+      let filterDebounce = null;
 
-    // ---- Get current filter values ----
-    function getFilters() {
-      return {
-        tgl: document.getElementById('filter-tgl').value.trim(),
-        bulan: document.getElementById('filter-bulan').value,
-        kategori: document.getElementById('filter-kategori').value,
-        tahun: document.getElementById('filter-tahun').value
-      };
-    }
-
-    // ---- Destroy a chart safely ----
-    function destroyChart(key) {
-      if (chartInstances[key]) {
-        chartInstances[key].destroy();
-        chartInstances[key] = null;
+      // ---- Get current filter values ----
+      function getFilters() {
+        return {
+          tgl: document.getElementById("filter-tgl").value.trim(),
+          bulan: document.getElementById("filter-bulan").value,
+          kategori: document.getElementById("filter-kategori").value,
+          tahun: document.getElementById("filter-tahun").value,
+        };
       }
-    }
 
-    // ---- Update stat cards (no animation on filter, just set text) ----
-    function updateStatCards(stats) {
-      const el1 = document.getElementById('dash-total-berat');
-      const el2 = document.getElementById('dash-total-entries');
-      const el3 = document.getElementById('dash-total-days');
-      const el4 = document.getElementById('dash-rata-rata');
-
-      if (el1) {
-        el1.textContent = App.formatNumber(stats.total_berat) + ' kg';
-        el1.dataset.count = stats.total_berat;
-      }
-      if (el2) {
-        el2.textContent = App.formatNumber(stats.total_entries);
-        el2.dataset.count = stats.total_entries;
-      }
-      if (el3) {
-        el3.textContent = App.formatNumber(stats.total_collection_days);
-        el3.dataset.count = stats.total_collection_days;
-      }
-      if (el4) {
-        el4.textContent = App.formatNumber(stats.rata_rata_berat) + ' kg';
-        el4.dataset.count = stats.rata_rata_berat;
-      }
-    }
-
-    // ---- Update summary row below table ----
-    function updateSummary(stats) {
-      const row = document.getElementById('summary-row');
-      document.getElementById('summary-total-berat').textContent = App.formatNumber(stats.total_berat);
-      document.getElementById('summary-rata-rata').textContent = App.formatNumber(stats.rata_rata_berat);
-      document.getElementById('summary-total-data').textContent = App.formatNumber(stats.total_entries);
-      row.style.display = 'flex';
-    }
-
-    // ---- Rebuild all charts with new data ----
-    function rebuildCharts(stats) {
-      // Destroy old charts
-      destroyChart('category');
-      destroyChart('monthly');
-      destroyChart('yearly');
-      destroyChart('items');
-
-      // Recreate
-      if (stats.by_category && Object.keys(stats.by_category).length)
-        chartInstances.category = Charts.createCategoryChart('chart-category', stats.by_category);
-      if (stats.by_month && Object.keys(stats.by_month).length)
-        chartInstances.monthly = Charts.createMonthlyChart('chart-monthly', stats.by_month);
-      if (stats.by_year && Object.keys(stats.by_year).length)
-        chartInstances.yearly = Charts.createTrendChart('chart-yearly', stats.by_year);
-      if (stats.by_item && Object.keys(stats.by_item).length)
-        chartInstances.items = Charts.createItemChart('chart-items', stats.by_item);
-    }
-
-    // ---- Render table + data count ----
-    function renderTableData(data) {
-      App._tableData['data-table'] = data;
-      App.renderTable(data, 'data-table', { page: 1, perPage: 20 });
-      document.getElementById('data-count').innerHTML =
-        `Menampilkan <strong>${data.length}</strong> data dari Google Spreadsheet`;
-    }
-
-    // ---- Full dashboard load (initial) ----
-    async function loadDashboard() {
-      try {
-        // Load stats (global)
-        const stats = await App.loadStatistics();
-        if (stats) {
-          // Animate on first load
-          const el1 = document.getElementById('dash-total-berat');
-          const el2 = document.getElementById('dash-total-entries');
-          const el3 = document.getElementById('dash-total-days');
-          const el4 = document.getElementById('dash-rata-rata');
-          if (el1) { el1.dataset.count = stats.total_berat; el1.dataset.suffix = ' kg'; }
-          if (el2) { el2.dataset.count = stats.total_entries; }
-          if (el3) { el3.dataset.count = stats.total_collection_days; }
-          if (el4) { el4.dataset.count = stats.rata_rata_berat; el4.dataset.suffix = ' kg'; }
-          App.initCounters();
-
-          // Build charts
-          rebuildCharts(stats);
-
-          // Update summary
-          updateSummary(stats);
+      // ---- Destroy a chart safely ----
+      function destroyChart(key) {
+        if (chartInstances[key]) {
+          chartInstances[key].destroy();
+          chartInstances[key] = null;
         }
-
-        // Load table data
-        const data = await App.loadReports();
-        renderTableData(data);
-
-      } catch (err) {
-        console.error('Dashboard load error:', err);
-        document.getElementById('data-table').innerHTML =
-          '<p style="text-align:center; color:var(--text-muted); padding:2rem;">Gagal memuat data. Pastikan server berjalan.</p>';
       }
-    }
 
-    // ---- Apply filters: updates EVERYTHING (stats, charts, table, summary) ----
-    async function applyFilters() {
-      clearTimeout(filterDebounce);
-      filterDebounce = setTimeout(async () => {
-        const filters = getFilters();
-        const hasFilter = filters.tgl || filters.bulan || filters.kategori || filters.tahun;
+      // ---- Update stat cards (no animation on filter, just set text) ----
+      function updateStatCards(stats) {
+        const el1 = document.getElementById("dash-total-berat");
+        const el2 = document.getElementById("dash-total-entries");
+        const el3 = document.getElementById("dash-total-days");
+        const el4 = document.getElementById("dash-rata-rata");
 
+        if (el1) {
+          el1.textContent = App.formatNumber(stats.total_berat) + " kg";
+          el1.dataset.count = stats.total_berat;
+        }
+        if (el2) {
+          el2.textContent = App.formatNumber(stats.total_entries);
+          el2.dataset.count = stats.total_entries;
+        }
+        if (el3) {
+          el3.textContent = App.formatNumber(stats.total_collection_days);
+          el3.dataset.count = stats.total_collection_days;
+        }
+        if (el4) {
+          el4.textContent = App.formatNumber(stats.rata_rata_berat) + " kg";
+          el4.dataset.count = stats.rata_rata_berat;
+        }
+      }
+
+      // ---- Update summary row below table ----
+      function updateSummary(stats) {
+        const row = document.getElementById("summary-row");
+        document.getElementById("summary-total-berat").textContent =
+          App.formatNumber(stats.total_berat);
+        document.getElementById("summary-rata-rata").textContent =
+          App.formatNumber(stats.rata_rata_berat);
+        document.getElementById("summary-total-data").textContent =
+          App.formatNumber(stats.total_entries);
+        row.style.display = "flex";
+      }
+
+      // ---- Rebuild all charts with new data ----
+      function rebuildCharts(stats) {
+        // Destroy old charts
+        destroyChart("category");
+        destroyChart("monthly");
+        destroyChart("yearly");
+        destroyChart("items");
+
+        // Recreate
+        if (stats.by_category && Object.keys(stats.by_category).length)
+          chartInstances.category = Charts.createCategoryChart(
+            "chart-category",
+            stats.by_category,
+          );
+        if (stats.by_month && Object.keys(stats.by_month).length)
+          chartInstances.monthly = Charts.createMonthlyChart(
+            "chart-monthly",
+            stats.by_month,
+          );
+        if (stats.by_year && Object.keys(stats.by_year).length)
+          chartInstances.yearly = Charts.createTrendChart(
+            "chart-yearly",
+            stats.by_year,
+          );
+        if (stats.by_item && Object.keys(stats.by_item).length)
+          chartInstances.items = Charts.createItemChart(
+            "chart-items",
+            stats.by_item,
+          );
+      }
+
+      // ---- Render table + data count ----
+      function renderTableData(data) {
+        App._tableData["data-table"] = data;
+        App.renderTable(data, "data-table", { page: 1, perPage: 20 });
+        document.getElementById("data-count").innerHTML =
+          `Menampilkan <strong>${data.length}</strong> data dari Google Spreadsheet`;
+      }
+
+      // ---- Full dashboard load (initial) ----
+      async function loadDashboard() {
         try {
-          // Show loading
-          document.getElementById('data-count').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat data...';
-
-          // Fetch filtered stats & reports in parallel
-          const [stats, data] = await Promise.all([
-            App.loadStatisticsFiltered(filters),
-            App.loadReports(filters)
-          ]);
-
-          // Update stat cards
+          // Load stats (global)
+          const stats = await App.loadStatistics();
           if (stats) {
-            updateStatCards(stats);
+            // Animate on first load
+            const el1 = document.getElementById("dash-total-berat");
+            const el2 = document.getElementById("dash-total-entries");
+            const el3 = document.getElementById("dash-total-days");
+            const el4 = document.getElementById("dash-rata-rata");
+            if (el1) {
+              el1.dataset.count = stats.total_berat;
+              el1.dataset.suffix = " kg";
+            }
+            if (el2) {
+              el2.dataset.count = stats.total_entries;
+            }
+            if (el3) {
+              el3.dataset.count = stats.total_collection_days;
+            }
+            if (el4) {
+              el4.dataset.count = stats.rata_rata_berat;
+              el4.dataset.suffix = " kg";
+            }
+            App.initCounters();
+
+            // Build charts
             rebuildCharts(stats);
+
+            // Update summary
             updateSummary(stats);
           }
 
-          // Update table
+          // Load table data
+          const data = await App.loadReports();
           renderTableData(data);
-
         } catch (err) {
-          console.error('Filter error:', err);
+          console.error("Dashboard load error:", err);
+          document.getElementById("data-table").innerHTML =
+            '<p style="text-align:center; color:var(--text-muted); padding:2rem;">Gagal memuat data. Pastikan server berjalan.</p>';
         }
-      }, 300);  // debounce 300ms
-    }
+      }
 
-    // ---- Reset all filters ----
-    function resetFilters() {
-      document.getElementById('filter-tgl').value = '';
-      document.getElementById('filter-bulan').value = '';
-      document.getElementById('filter-kategori').value = '';
-      document.getElementById('filter-tahun').value = '';
-      loadDashboard();
-    }
+      // ---- Apply filters: updates EVERYTHING (stats, charts, table, summary) ----
+      async function applyFilters() {
+        clearTimeout(filterDebounce);
+        filterDebounce = setTimeout(async () => {
+          const filters = getFilters();
+          const hasFilter =
+            filters.tgl || filters.bulan || filters.kategori || filters.tahun;
 
-    document.addEventListener('DOMContentLoaded', loadDashboard);
-  </script>
-</body>
+          try {
+            // Show loading
+            document.getElementById("data-count").innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Memuat data...';
 
+            // Fetch filtered stats & reports in parallel
+            const [stats, data] = await Promise.all([
+              App.loadStatisticsFiltered(filters),
+              App.loadReports(filters),
+            ]);
+
+            // Update stat cards
+            if (stats) {
+              updateStatCards(stats);
+              rebuildCharts(stats);
+              updateSummary(stats);
+            }
+
+            // Update table
+            renderTableData(data);
+          } catch (err) {
+            console.error("Filter error:", err);
+          }
+        }, 300); // debounce 300ms
+      }
+
+      // ---- Reset all filters ----
+      function resetFilters() {
+        document.getElementById("filter-tgl").value = "";
+        document.getElementById("filter-bulan").value = "";
+        document.getElementById("filter-kategori").value = "";
+        document.getElementById("filter-tahun").value = "";
+        loadDashboard();
+      }
+
+      document.addEventListener("DOMContentLoaded", loadDashboard);
+    </script>
+  </body>
 </html>

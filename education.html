@@ -1,22 +1,28 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edukasi - Pasukan Katak Orange</title>
+    <meta
+      name="description"
+      content="Edukasi pengelolaan sampah dan pelestarian lingkungan oleh Pasukan Katak Orange DLH Kota Bekasi."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edukasi - Pasukan Katak Orange</title>
-  <meta name="description"
-    content="Edukasi pengelolaan sampah dan pelestarian lingkungan oleh Pasukan Katak Orange DLH Kota Bekasi." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
+  <body>
+    <canvas id="three-canvas"></canvas>
 
-<body>
-  <canvas id="three-canvas"></canvas>
-
-  <nav class="navbar">
-    <div class="nav-brand">
-      <div class="nav-logo" style="
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div
+          class="nav-logo"
+          style="
             background: linear-gradient(
               135deg,
               var(--green-500),
@@ -26,31 +32,33 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-          ">
-        <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+          "
+        >
+          <img src="images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+        </div>
+        <div>
+          <div class="nav-title">Pasukan Katak Orange</div>
+          <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+        </div>
       </div>
-      <div>
-        <div class="nav-title">Pasukan Katak Orange</div>
-        <div class="nav-subtitle">Dinas Lingkungan Hidup Kota Bekasi</div>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Beranda</a>
+        <a href="/dashboard.html" class="nav-link">Data Sampah</a>
+        <a href="/education.html" class="nav-link active">Edukasi</a>
+        <a href="/gallery.html" class="nav-link">Galeri</a>
       </div>
-    </div>
-    <div class="nav-links">
-      <a href="/index.html" class="nav-link">Beranda</a>
-      <a href="/dashboard.html" class="nav-link">Data Sampah</a>
-      <a href="/education.html" class="nav-link active">Edukasi</a>
-      <a href="/gallery.html" class="nav-link">Galeri</a>
-    </div>
-    <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-auth"></div>
-  </nav>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-auth"></div>
+    </nav>
 
-  <main class="main-content">
-    <div class="container">
-      <!-- Header -->
-      <div class="page-header animate-on-scroll">
-        <h1 style="
+    <main class="main-content">
+      <div class="container">
+        <!-- Header -->
+        <div class="page-header animate-on-scroll">
+          <h1
+            style="
               background: linear-gradient(
                 135deg,
                 var(--green-300),
@@ -59,210 +67,246 @@
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
-            ">
-          <i class="fas fa-graduation-cap" style="-webkit-text-fill-color: var(--green-400)"></i>
-          Edukasi Lingkungan
-        </h1>
-        <p>Pelajari tentang pengelolaan sampah dan pelestarian sungai</p>
-        <div class="section-divider"></div>
-      </div>
-
-      <!-- Education Cards -->
-      <section class="section" style="padding-top: 1rem">
-        <div class="edu-grid">
-          <div class="edu-card animate-on-scroll">
-            <div class="edu-card-icon">🚯</div>
-            <div class="edu-card-body">
-              <h3>Jenis-Jenis Sampah</h3>
-              <p>
-                Sampah terbagi menjadi tiga kategori utama:
-                <strong style="color: var(--green-400)">Organik</strong> (sisa
-                makanan, daun),
-                <strong style="color: var(--orange-400)">Non-Organik</strong>
-                (plastik, kaca, logam), dan
-                <strong style="color: #ce93d8">Residu</strong> (sampah yang
-                tidak dapat didaur ulang). Pemilahan yang benar sangat penting
-                untuk pengelolaan yang efektif.
-              </p>
-            </div>
-          </div>
-
-          <div class="edu-card animate-on-scroll delay-100">
-            <div class="edu-card-icon">🌊</div>
-            <div class="edu-card-body">
-              <h3>Dampak Sampah di Sungai</h3>
-              <p>
-                Sampah di Kali Bekasi menyebabkan penyempitan aliran, banjir,
-                pencemaran air, dan kerusakan ekosistem akuatik. Sekitar
-                <strong style="color: var(--orange-400)">80% sampah laut</strong>
-                berasal dari daratan melalui sungai. Setiap aksi pembersihan
-                sangat berarti!
-              </p>
-            </div>
-          </div>
-
-          <div class="edu-card animate-on-scroll delay-200">
-            <div class="edu-card-icon">♻️</div>
-            <div class="edu-card-body">
-              <h3>Daur Ulang & 3R</h3>
-              <p>
-                <strong style="color: var(--green-400)">Reduce</strong>
-                (kurangi),
-                <strong style="color: var(--orange-400)">Reuse</strong>
-                (gunakan kembali),
-                <strong style="color: #ce93d8">Recycle</strong> (daur ulang).
-                Prinsip 3R adalah langkah sederhana namun berdampak besar
-                dalam mengurangi volume sampah.
-              </p>
-            </div>
-          </div>
-
-          <div class="edu-card animate-on-scroll delay-300">
-            <div class="edu-card-icon">🐸</div>
-            <div class="edu-card-body">
-              <h3>Peran Pasukan Katak</h3>
-              <p>
-                Pasukan Katak Orange bertugas membersihkan sampah di sepanjang
-                aliran Kali Bekasi secara rutin. Data yang dikumpulkan
-                digunakan untuk analisis dan pelaporan kepada pimpinan DLH
-                Kota Bekasi.
-              </p>
-            </div>
-          </div>
-
-          <div class="edu-card animate-on-scroll delay-400">
-            <div class="edu-card-icon">🌿</div>
-            <div class="edu-card-body">
-              <h3>Ekosistem Sungai</h3>
-              <p>
-                Sungai yang bersih mendukung keanekaragaman hayati,
-                menyediakan sumber air bersih, dan menjadi tempat rekreasi
-                masyarakat. Menjaga sungai berarti menjaga kehidupan
-                sekitarnya.
-              </p>
-            </div>
-          </div>
-
-          <div class="edu-card animate-on-scroll delay-500">
-            <div class="edu-card-icon">📊</div>
-            <div class="edu-card-body">
-              <h3>Pentingnya Data</h3>
-              <p>
-                Pencatatan data sampah secara sistematis membantu memahami
-                pola dan tren pencemaran. Data ini menjadi dasar pengambilan
-                keputusan oleh pemerintah dalam mengatasi masalah sampah.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Infographic Section -->
-      <section class="section">
-        <div class="section-title animate-on-scroll">
-          <h2>Fakta <span class="accent">Sampah</span></h2>
+            "
+          >
+            <i
+              class="fas fa-graduation-cap"
+              style="-webkit-text-fill-color: var(--green-400)"
+            ></i>
+            Edukasi Lingkungan
+          </h1>
+          <p>Pelajari tentang pengelolaan sampah dan pelestarian sungai</p>
           <div class="section-divider"></div>
         </div>
 
-        <div style="
+        <!-- Education Cards -->
+        <section class="section" style="padding-top: 1rem">
+          <div class="edu-grid">
+            <div class="edu-card animate-on-scroll">
+              <div class="edu-card-icon">🚯</div>
+              <div class="edu-card-body">
+                <h3>Jenis-Jenis Sampah</h3>
+                <p>
+                  Sampah terbagi menjadi tiga kategori utama:
+                  <strong style="color: var(--green-400)">Organik</strong> (sisa
+                  makanan, daun),
+                  <strong style="color: var(--orange-400)">Non-Organik</strong>
+                  (plastik, kaca, logam), dan
+                  <strong style="color: #ce93d8">Residu</strong> (sampah yang
+                  tidak dapat didaur ulang). Pemilahan yang benar sangat penting
+                  untuk pengelolaan yang efektif.
+                </p>
+              </div>
+            </div>
+
+            <div class="edu-card animate-on-scroll delay-100">
+              <div class="edu-card-icon">🌊</div>
+              <div class="edu-card-body">
+                <h3>Dampak Sampah di Sungai</h3>
+                <p>
+                  Sampah di Kali Bekasi menyebabkan penyempitan aliran, banjir,
+                  pencemaran air, dan kerusakan ekosistem akuatik. Sekitar
+                  <strong style="color: var(--orange-400)"
+                    >80% sampah laut</strong
+                  >
+                  berasal dari daratan melalui sungai. Setiap aksi pembersihan
+                  sangat berarti!
+                </p>
+              </div>
+            </div>
+
+            <div class="edu-card animate-on-scroll delay-200">
+              <div class="edu-card-icon">♻️</div>
+              <div class="edu-card-body">
+                <h3>Daur Ulang & 3R</h3>
+                <p>
+                  <strong style="color: var(--green-400)">Reduce</strong>
+                  (kurangi),
+                  <strong style="color: var(--orange-400)">Reuse</strong>
+                  (gunakan kembali),
+                  <strong style="color: #ce93d8">Recycle</strong> (daur ulang).
+                  Prinsip 3R adalah langkah sederhana namun berdampak besar
+                  dalam mengurangi volume sampah.
+                </p>
+              </div>
+            </div>
+
+            <div class="edu-card animate-on-scroll delay-300">
+              <div class="edu-card-icon">🐸</div>
+              <div class="edu-card-body">
+                <h3>Peran Pasukan Katak</h3>
+                <p>
+                  Pasukan Katak Orange bertugas membersihkan sampah di sepanjang
+                  aliran Kali Bekasi secara rutin. Data yang dikumpulkan
+                  digunakan untuk analisis dan pelaporan kepada pimpinan DLH
+                  Kota Bekasi.
+                </p>
+              </div>
+            </div>
+
+            <div class="edu-card animate-on-scroll delay-400">
+              <div class="edu-card-icon">🌿</div>
+              <div class="edu-card-body">
+                <h3>Ekosistem Sungai</h3>
+                <p>
+                  Sungai yang bersih mendukung keanekaragaman hayati,
+                  menyediakan sumber air bersih, dan menjadi tempat rekreasi
+                  masyarakat. Menjaga sungai berarti menjaga kehidupan
+                  sekitarnya.
+                </p>
+              </div>
+            </div>
+
+            <div class="edu-card animate-on-scroll delay-500">
+              <div class="edu-card-icon">📊</div>
+              <div class="edu-card-body">
+                <h3>Pentingnya Data</h3>
+                <p>
+                  Pencatatan data sampah secara sistematis membantu memahami
+                  pola dan tren pencemaran. Data ini menjadi dasar pengambilan
+                  keputusan oleh pemerintah dalam mengatasi masalah sampah.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Infographic Section -->
+        <section class="section">
+          <div class="section-title animate-on-scroll">
+            <h2>Fakta <span class="accent">Sampah</span></h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div
+            style="
               display: grid;
               grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
               gap: 1.5rem;
-            ">
-          <div class="card-3d animate-on-scroll" style="text-align: center">
-            <div style="font-size: 3rem; margin-bottom: 1rem">🍶</div>
-            <h4 style="
+            "
+          >
+            <div class="card-3d animate-on-scroll" style="text-align: center">
+              <div style="font-size: 3rem; margin-bottom: 1rem">🍶</div>
+              <h4
+                style="
                   color: var(--orange-400);
                   font-size: 1.5rem;
                   margin-bottom: 0.3rem;
-                ">
-              450 Tahun
-            </h4>
-            <p style="color: var(--text-secondary); font-size: 0.9rem">
-              Waktu yang dibutuhkan botol plastik untuk terurai secara alami
-            </p>
-          </div>
-          <div class="card-3d animate-on-scroll delay-100" style="text-align: center">
-            <div style="font-size: 3rem; margin-bottom: 1rem">🌏</div>
-            <h4 style="
+                "
+              >
+                450 Tahun
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.9rem">
+                Waktu yang dibutuhkan botol plastik untuk terurai secara alami
+              </p>
+            </div>
+            <div
+              class="card-3d animate-on-scroll delay-100"
+              style="text-align: center"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">🌏</div>
+              <h4
+                style="
                   color: var(--green-400);
                   font-size: 1.5rem;
                   margin-bottom: 0.3rem;
-                ">
-              8 Juta Ton
-            </h4>
-            <p style="color: var(--text-secondary); font-size: 0.9rem">
-              Sampah plastik masuk ke laut setiap tahunnya di seluruh dunia
-            </p>
-          </div>
-          <div class="card-3d animate-on-scroll delay-200" style="text-align: center">
-            <div style="font-size: 3rem; margin-bottom: 1rem">🏙️</div>
-            <h4 style="
+                "
+              >
+                8 Juta Ton
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.9rem">
+                Sampah plastik masuk ke laut setiap tahunnya di seluruh dunia
+              </p>
+            </div>
+            <div
+              class="card-3d animate-on-scroll delay-200"
+              style="text-align: center"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">🏙️</div>
+              <h4
+                style="
                   color: var(--orange-400);
                   font-size: 1.5rem;
                   margin-bottom: 0.3rem;
-                ">
-              175.000 Ton
-            </h4>
-            <p style="color: var(--text-secondary); font-size: 0.9rem">
-              Estimasi sampah yang dihasilkan Kota Bekasi per tahun
-            </p>
-          </div>
-          <div class="card-3d animate-on-scroll delay-300" style="text-align: center">
-            <div style="font-size: 3rem; margin-bottom: 1rem">💧</div>
-            <h4 style="
+                "
+              >
+                175.000 Ton
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.9rem">
+                Estimasi sampah yang dihasilkan Kota Bekasi per tahun
+              </p>
+            </div>
+            <div
+              class="card-3d animate-on-scroll delay-300"
+              style="text-align: center"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">💧</div>
+              <h4
+                style="
                   color: var(--green-400);
                   font-size: 1.5rem;
                   margin-bottom: 0.3rem;
-                ">
-              70%
-            </h4>
-            <p style="color: var(--text-secondary); font-size: 0.9rem">
-              Sungai di Indonesia tercemar berat akibat sampah domestik
-            </p>
+                "
+              >
+                70%
+              </h4>
+              <p style="color: var(--text-secondary); font-size: 0.9rem">
+                Sungai di Indonesia tercemar berat akibat sampah domestik
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- CTA -->
-      <section class="section" style="text-align: center; padding-top: 0">
-        <div class="card-3d animate-on-scroll" style="max-width: 600px; margin: 0 auto">
-          <i class="fas fa-hands-helping" style="
+        <!-- CTA -->
+        <section class="section" style="text-align: center; padding-top: 0">
+          <div
+            class="card-3d animate-on-scroll"
+            style="max-width: 600px; margin: 0 auto"
+          >
+            <i
+              class="fas fa-hands-helping"
+              style="
                 font-size: 2.5rem;
                 color: var(--orange-400);
                 margin-bottom: 1rem;
                 display: block;
-              "></i>
-          <h3 style="margin-bottom: 0.5rem">Mari Bergabung!</h3>
-          <p style="
+              "
+            ></i>
+            <h3 style="margin-bottom: 0.5rem">Mari Bergabung!</h3>
+            <p
+              style="
                 color: var(--text-secondary);
                 margin-bottom: 1.5rem;
                 font-size: 0.95rem;
-              ">
-            Ikuti kegiatan Pasukan Katak Orange dan jadilah bagian dari
-            perubahan untuk sungai yang lebih bersih.
-          </p>
-          <a href="https://www.instagram.com/pasukankatak_dlh/" target="_blank" class="btn btn-accent">
-            <i class="fab fa-instagram"></i> Follow @pasukankatak_dlh
-          </a>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
-        All rights reserved.
+              "
+            >
+              Ikuti kegiatan Pasukan Katak Orange dan jadilah bagian dari
+              perubahan untuk sungai yang lebih bersih.
+            </p>
+            <a
+              href="https://www.instagram.com/pasukankatak_dlh/"
+              target="_blank"
+              class="btn btn-accent"
+            >
+              <i class="fab fa-instagram"></i> Follow @pasukankatak_dlh
+            </a>
+          </div>
+        </section>
       </div>
-    </div>
-  </footer>
+    </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/app.js"></script>
-  <script src="/js/three-bg.js"></script>
-</body>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
+          All rights reserved.
+        </div>
+      </div>
+    </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/three-bg.js"></script>
+  </body>
 </html>

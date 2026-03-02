@@ -1,20 +1,24 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Anggota - Pasukan Katak Orange</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Anggota - Pasukan Katak Orange</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
+  <body>
+    <canvas id="three-canvas"></canvas>
 
-<body>
-  <canvas id="three-canvas"></canvas>
-
-  <nav class="navbar">
-    <div class="nav-brand">
-      <div class="nav-logo" style="
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div
+          class="nav-logo"
+          style="
             background: linear-gradient(
               135deg,
               var(--green-500),
@@ -24,29 +28,31 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-          ">
-        <img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+          "
+        >
+          <img src="images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak" />
+        </div>
+        <div>
+          <div class="nav-title">Pasukan Katak Orange</div>
+          <div class="nav-subtitle">Dashboard Anggota</div>
+        </div>
       </div>
-      <div>
-        <div class="nav-title">Pasukan Katak Orange</div>
-        <div class="nav-subtitle">Dashboard Anggota</div>
+      <div class="nav-links">
+        <a href="/index.html" class="nav-link">Beranda</a>
+        <a href="/dashboard.html" class="nav-link">Data Sampah</a>
+        <a href="/member.html" class="nav-link active">Input Data</a>
       </div>
-    </div>
-    <div class="nav-links">
-      <a href="/index.html" class="nav-link">Beranda</a>
-      <a href="/dashboard.html" class="nav-link">Data Sampah</a>
-      <a href="/member.html" class="nav-link active">Input Data</a>
-    </div>
-    <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-auth"></div>
-  </nav>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-auth"></div>
+    </nav>
 
-  <main class="main-content">
-    <div class="container">
-      <div class="page-header">
-        <h1 style="
+    <main class="main-content">
+      <div class="container">
+        <div class="page-header">
+          <h1
+            style="
               background: linear-gradient(
                 135deg,
                 var(--green-300),
@@ -55,196 +61,295 @@
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
-            ">
-          Dashboard Anggota
-        </h1>
-        <p>Input dan pantau data pengumpulan sampah</p>
-        <div class="section-divider"></div>
-      </div>
+            "
+          >
+            Dashboard Anggota
+          </h1>
+          <p>Input dan pantau data pengumpulan sampah</p>
+          <div class="section-divider"></div>
+        </div>
 
-      <div class="dashboard-grid">
-        <!-- User Info Sidebar -->
-        <div>
-          <div class="user-card animate-on-scroll">
-            <div class="user-avatar"><img src="/images/Logo_Pasukan_Katak.jpeg" alt="Logo Pasukan Katak"
-                style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
-            <h3 id="user-name">Anggota</h3>
-            <p id="user-role">Jambu x Bewok</p>
-          </div>
+        <div class="dashboard-grid">
+          <!-- User Info Sidebar -->
+          <div>
+            <div class="user-card animate-on-scroll">
+              <div class="user-avatar">
+                <img
+                  src="images/Logo_Pasukan_Katak.jpeg"
+                  alt="Logo Pasukan Katak"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                  "
+                />
+              </div>
+              <h3 id="user-name">Anggota</h3>
+              <p id="user-role">Jambu x Bewok</p>
+            </div>
 
-          <!-- Quick Stats -->
-          <div class="card-3d animate-on-scroll" style="margin-top: 1rem">
-            <h3 style="
+            <!-- Quick Stats -->
+            <div class="card-3d animate-on-scroll" style="margin-top: 1rem">
+              <h3
+                style="
                   font-size: 1rem;
                   margin-bottom: 1rem;
                   color: var(--green-400);
-                ">
-              <i class="fas fa-info-circle"></i> Panduan Input
-            </h3>
-            <ul style="
+                "
+              >
+                <i class="fas fa-info-circle"></i> Panduan Input
+              </h3>
+              <ul
+                style="
                   font-size: 0.85rem;
                   color: var(--text-secondary);
                   line-height: 2;
-                ">
-              <li>
-                <i class="fas fa-check-circle" style="color: var(--orange-400)"></i>
-                Isi tanggal pengumpulan sampah
-              </li>
-              <li>
-                <i class="fas fa-check-circle" style="color: var(--orange-400)"></i>
-                Pilih kategori dan jenis sampah
-              </li>
-              <li>
-                <i class="fas fa-check-circle" style="color: var(--orange-400)"></i>
-                Input berat dalam kilogram (kg)
-              </li>
-              <li>
-                <i class="fas fa-check-circle" style="color: var(--orange-400)"></i>
-                Data otomatis masuk ke Google Sheets
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Input Form -->
-        <div>
-          <div class="card-3d animate-on-scroll">
-            <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--green-300);">
-              <i class="fas fa-plus-circle" style="color: var(--orange-400)"></i>
-              Input Data Sampah Baru
-            </h3>
-
-            <div id="submit-success"
-              style="display:none; background:rgba(76,175,80,0.1); border:1px solid rgba(76,175,80,0.3); color:var(--green-400); padding:1rem; border-radius:10px; margin-bottom:1rem;">
-              <i class="fas fa-check-circle"></i>
-              <span id="success-msg">Data berhasil dikirim!</span>
+                "
+              >
+                <li>
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--orange-400)"
+                  ></i>
+                  Isi tanggal pengumpulan sampah
+                </li>
+                <li>
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--orange-400)"
+                  ></i>
+                  Pilih kategori dan jenis sampah
+                </li>
+                <li>
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--orange-400)"
+                  ></i>
+                  Input berat dalam kilogram (kg)
+                </li>
+                <li>
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: var(--orange-400)"
+                  ></i>
+                  Data otomatis masuk ke Google Sheets
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <form id="report-form">
-              <!-- Date & Month (shared for all items) -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">Tanggal (Tgl) *</label>
-                  <input type="date" class="form-input" id="inp-tgl" required />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Bulan (otomatis)</label>
-                  <select class="form-select" id="inp-bulan" required>
-                    <option value="">Pilih Bulan</option>
-                    <option>Januari</option>
-                    <option>Februari</option>
-                    <option>Maret</option>
-                    <option>April</option>
-                    <option>Mei</option>
-                    <option>Juni</option>
-                    <option>Juli</option>
-                    <option>Agustus</option>
-                    <option>September</option>
-                    <option>Oktober</option>
-                    <option>November</option>
-                    <option>Desember</option>
-                  </select>
-                </div>
+          <!-- Input Form -->
+          <div>
+            <div class="card-3d animate-on-scroll">
+              <h3
+                style="
+                  font-size: 1.2rem;
+                  margin-bottom: 1.5rem;
+                  color: var(--green-300);
+                "
+              >
+                <i
+                  class="fas fa-plus-circle"
+                  style="color: var(--orange-400)"
+                ></i>
+                Input Data Sampah Baru
+              </h3>
+
+              <div
+                id="submit-success"
+                style="
+                  display: none;
+                  background: rgba(76, 175, 80, 0.1);
+                  border: 1px solid rgba(76, 175, 80, 0.3);
+                  color: var(--green-400);
+                  padding: 1rem;
+                  border-radius: 10px;
+                  margin-bottom: 1rem;
+                "
+              >
+                <i class="fas fa-check-circle"></i>
+                <span id="success-msg">Data berhasil dikirim!</span>
               </div>
 
-              <!-- Dynamic Item Rows -->
-              <div style="margin: 1.5rem 0 0.5rem; display:flex; justify-content:space-between; align-items:center;">
-                <h4 style="font-size:1rem; color:var(--green-400); margin:0;">
-                  <i class="fas fa-list"></i> Daftar Item Sampah
-                </h4>
-                <button type="button" onclick="addItemRow()" class="btn btn-primary btn-sm"
-                  style="font-size:0.8rem; padding:0.4rem 0.8rem;">
-                  <i class="fas fa-plus"></i> Tambah Item
+              <form id="report-form">
+                <!-- Date & Month (shared for all items) -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Tanggal (Tgl) *</label>
+                    <input
+                      type="date"
+                      class="form-input"
+                      id="inp-tgl"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Bulan (otomatis)</label>
+                    <select class="form-select" id="inp-bulan" required>
+                      <option value="">Pilih Bulan</option>
+                      <option>Januari</option>
+                      <option>Februari</option>
+                      <option>Maret</option>
+                      <option>April</option>
+                      <option>Mei</option>
+                      <option>Juni</option>
+                      <option>Juli</option>
+                      <option>Agustus</option>
+                      <option>September</option>
+                      <option>Oktober</option>
+                      <option>November</option>
+                      <option>Desember</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Dynamic Item Rows -->
+                <div
+                  style="
+                    margin: 1.5rem 0 0.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <h4
+                    style="font-size: 1rem; color: var(--green-400); margin: 0"
+                  >
+                    <i class="fas fa-list"></i> Daftar Item Sampah
+                  </h4>
+                  <button
+                    type="button"
+                    onclick="addItemRow()"
+                    class="btn btn-primary btn-sm"
+                    style="font-size: 0.8rem; padding: 0.4rem 0.8rem"
+                  >
+                    <i class="fas fa-plus"></i> Tambah Item
+                  </button>
+                </div>
+
+                <div id="items-container">
+                  <!-- Item rows will be dynamically added here -->
+                </div>
+
+                <!-- Auto-calculated Summary -->
+                <div
+                  class="summary-row"
+                  id="input-summary"
+                  style="margin: 1rem 0"
+                >
+                  <div class="summary-item">
+                    <i class="fas fa-boxes"></i>
+                    <span
+                      >Jumlah Item:
+                      <strong id="calc-items-count">0</strong></span
+                    >
+                  </div>
+                  <div class="summary-item">
+                    <i class="fas fa-weight-hanging"></i>
+                    <span
+                      >Total Berat:
+                      <strong id="calc-total-berat">0</strong> kg</span
+                    >
+                  </div>
+                  <div class="summary-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span
+                      >Rata-rata:
+                      <strong id="calc-rata-rata">0</strong> kg</span
+                    >
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-accent"
+                  style="
+                    width: 100%;
+                    justify-content: center;
+                    margin-top: 0.5rem;
+                  "
+                  id="submit-btn"
+                >
+                  <i class="fas fa-paper-plane"></i> Kirim Semua Data
                 </button>
-              </div>
+              </form>
+            </div>
 
-              <div id="items-container">
-                <!-- Item rows will be dynamically added here -->
-              </div>
-
-              <!-- Auto-calculated Summary -->
-              <div class="summary-row" id="input-summary" style="margin: 1rem 0;">
-                <div class="summary-item">
-                  <i class="fas fa-boxes"></i>
-                  <span>Jumlah Item: <strong id="calc-items-count">0</strong></span>
+            <!-- Recent Submissions -->
+            <div class="card-3d animate-on-scroll" style="margin-top: 1.5rem">
+              <h3
+                style="
+                  font-size: 1rem;
+                  margin-bottom: 1rem;
+                  color: var(--green-300);
+                "
+              >
+                <i class="fas fa-history"></i> Data Terbaru
+              </h3>
+              <div id="recent-data">
+                <div style="text-align: center; padding: 2rem">
+                  <div class="loading-spinner"></div>
+                  <p
+                    style="
+                      color: var(--text-muted);
+                      margin-top: 1rem;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    Memuat data...
+                  </p>
                 </div>
-                <div class="summary-item">
-                  <i class="fas fa-weight-hanging"></i>
-                  <span>Total Berat: <strong id="calc-total-berat">0</strong> kg</span>
-                </div>
-                <div class="summary-item">
-                  <i class="fas fa-chart-line"></i>
-                  <span>Rata-rata: <strong id="calc-rata-rata">0</strong> kg</span>
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-accent"
-                style="width:100%; justify-content:center; margin-top:0.5rem;" id="submit-btn">
-                <i class="fas fa-paper-plane"></i> Kirim Semua Data
-              </button>
-            </form>
-          </div>
-
-          <!-- Recent Submissions -->
-          <div class="card-3d animate-on-scroll" style="margin-top: 1.5rem">
-            <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--green-300);">
-              <i class="fas fa-history"></i> Data Terbaru
-            </h3>
-            <div id="recent-data">
-              <div style="text-align: center; padding: 2rem">
-                <div class="loading-spinner"></div>
-                <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.85rem;">Memuat data...</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
-        All rights reserved.
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          &copy; 2026 Pasukan Katak Orange - Dinas Lingkungan Hidup Kota Bekasi.
+          All rights reserved.
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/app.js"></script>
-  <script src="/js/three-bg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/three-bg.js"></script>
 
-  <script>
-    /* ========================================
+    <script>
+      /* ========================================
        MEMBER DASHBOARD - Multi-Item Input
        ======================================== */
 
-    const ITEM_OPTIONS = {
-      'Organic': ['Organic'],
-      'Non - Organic': [
-        'Botol Plastik (Plastic Bottle)',
-        'Gelas Plastik (Plastic Cup)',
-        'Plastik Lainnya (Others Plastic)',
-        'Beling / Kaca (Glass)',
-        'Besi / Logam (Iron / Metal)'
-      ],
-      'Residu': ['Residu (Residue)']
-    };
+      const ITEM_OPTIONS = {
+        Organic: ["Organic"],
+        "Non - Organic": [
+          "Botol Plastik (Plastic Bottle)",
+          "Gelas Plastik (Plastic Cup)",
+          "Plastik Lainnya (Others Plastic)",
+          "Beling / Kaca (Glass)",
+          "Besi / Logam (Iron / Metal)",
+        ],
+        Residu: ["Residu (Residue)"],
+      };
 
-    let itemRowCount = 0;
+      let itemRowCount = 0;
 
-    // ---- Add a new item row ----
-    function addItemRow() {
-      itemRowCount++;
-      const id = itemRowCount;
-      const container = document.getElementById('items-container');
+      // ---- Add a new item row ----
+      function addItemRow() {
+        itemRowCount++;
+        const id = itemRowCount;
+        const container = document.getElementById("items-container");
 
-      const row = document.createElement('div');
-      row.className = 'item-input-row';
-      row.id = `item-row-${id}`;
-      row.innerHTML = `
+        const row = document.createElement("div");
+        row.className = "item-input-row";
+        row.id = `item-row-${id}`;
+        row.innerHTML = `
           <div class="item-row-header">
             <span class="item-row-number">#${id}</span>
             <button type="button" onclick="removeItemRow(${id})" class="item-row-remove" title="Hapus item">
@@ -273,164 +378,195 @@
             </div>
           </div>
         `;
-      container.appendChild(row);
-      recalcTotals();
-    }
-
-    // ---- Remove an item row ----
-    function removeItemRow(id) {
-      const row = document.getElementById(`item-row-${id}`);
-      if (row) row.remove();
-      recalcTotals();
-    }
-
-    // ---- Update item options when kategori changes ----
-    function onKategoriChange(id) {
-      const row = document.getElementById(`item-row-${id}`);
-      const kategori = row.querySelector('.item-kategori').value;
-      const itemSelect = row.querySelector('.item-sampah');
-      itemSelect.innerHTML = '<option value="">Pilih Item</option>';
-      (ITEM_OPTIONS[kategori] || []).forEach(item => {
-        const label = item.replace(/\s*\(.*\)/, '');
-        itemSelect.innerHTML += `<option value="${item}">${label}</option>`;
-      });
-    }
-
-    // ---- Recalculate totals ----
-    function recalcTotals() {
-      const beratInputs = document.querySelectorAll('.item-berat');
-      let totalBerat = 0;
-      let count = 0;
-      beratInputs.forEach(inp => {
-        const val = parseFloat(inp.value) || 0;
-        if (val > 0) count++;
-        totalBerat += val;
-      });
-      const rataRata = beratInputs.length > 0 ? totalBerat / beratInputs.length : 0;
-
-      document.getElementById('calc-items-count').textContent = beratInputs.length;
-      document.getElementById('calc-total-berat').textContent = App.formatNumber(Math.round(totalBerat * 100) / 100);
-      document.getElementById('calc-rata-rata').textContent = App.formatNumber(Math.round(rataRata * 100) / 100);
-    }
-
-    // ---- Collect all items from rows ----
-    function collectItems() {
-      const rows = document.querySelectorAll('.item-input-row');
-      const items = [];
-      let valid = true;
-      rows.forEach(row => {
-        const kategori = row.querySelector('.item-kategori').value;
-        const item = row.querySelector('.item-sampah').value;
-        const berat = parseFloat(row.querySelector('.item-berat').value) || 0;
-
-        if (!kategori || !item || berat <= 0) {
-          valid = false;
-          return;
-        }
-        items.push({ kategori_sampah: kategori, item_sampah: item, berat });
-      });
-      return valid ? items : null;
-    }
-
-    // ---- Init ----
-    document.addEventListener('DOMContentLoaded', async () => {
-      if (!Auth.requireAuth()) return;
-
-      document.getElementById('user-name').textContent = Auth.getName();
-      document.getElementById('user-role').textContent = Auth.isAdmin() ? 'Administrator' : 'Anggota Pasukan Katak';
-
-      // Auto-set month based on date input
-      document.getElementById('inp-tgl').addEventListener('change', function () {
-        const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-        const date = new Date(this.value);
-        if (!isNaN(date)) {
-          document.getElementById('inp-bulan').value = months[date.getMonth()];
-        }
-      });
-
-      // Add first item row automatically
-      addItemRow();
-
-      // Load recent data
-      loadRecent();
-    });
-
-    // ---- Submit form (batch) ----
-    document.getElementById('report-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-
-      const items = collectItems();
-      if (!items || items.length === 0) {
-        App.showToast('Lengkapi semua field item (kategori, item, berat) sebelum mengirim!', 'error');
-        return;
+        container.appendChild(row);
+        recalcTotals();
       }
 
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-
-      const tglInput = document.getElementById('inp-tgl').value;
-      if (!tglInput) {
-        App.showToast('Tanggal wajib diisi!', 'error');
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Semua Data';
-        return;
+      // ---- Remove an item row ----
+      function removeItemRow(id) {
+        const row = document.getElementById(`item-row-${id}`);
+        if (row) row.remove();
+        recalcTotals();
       }
-      const dateParts = tglInput.split('-');
-      const tgl = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
 
-      const payload = {
-        tgl,
-        bulan: document.getElementById('inp-bulan').value,
-        items
-      };
+      // ---- Update item options when kategori changes ----
+      function onKategoriChange(id) {
+        const row = document.getElementById(`item-row-${id}`);
+        const kategori = row.querySelector(".item-kategori").value;
+        const itemSelect = row.querySelector(".item-sampah");
+        itemSelect.innerHTML = '<option value="">Pilih Item</option>';
+        (ITEM_OPTIONS[kategori] || []).forEach((item) => {
+          const label = item.replace(/\s*\(.*\)/, "");
+          itemSelect.innerHTML += `<option value="${item}">${label}</option>`;
+        });
+      }
 
-      try {
-        const result = await App.api('/api/reports/batch', {
-          method: 'POST',
-          body: JSON.stringify(payload)
+      // ---- Recalculate totals ----
+      function recalcTotals() {
+        const beratInputs = document.querySelectorAll(".item-berat");
+        let totalBerat = 0;
+        let count = 0;
+        beratInputs.forEach((inp) => {
+          const val = parseFloat(inp.value) || 0;
+          if (val > 0) count++;
+          totalBerat += val;
+        });
+        const rataRata =
+          beratInputs.length > 0 ? totalBerat / beratInputs.length : 0;
+
+        document.getElementById("calc-items-count").textContent =
+          beratInputs.length;
+        document.getElementById("calc-total-berat").textContent =
+          App.formatNumber(Math.round(totalBerat * 100) / 100);
+        document.getElementById("calc-rata-rata").textContent =
+          App.formatNumber(Math.round(rataRata * 100) / 100);
+      }
+
+      // ---- Collect all items from rows ----
+      function collectItems() {
+        const rows = document.querySelectorAll(".item-input-row");
+        const items = [];
+        let valid = true;
+        rows.forEach((row) => {
+          const kategori = row.querySelector(".item-kategori").value;
+          const item = row.querySelector(".item-sampah").value;
+          const berat = parseFloat(row.querySelector(".item-berat").value) || 0;
+
+          if (!kategori || !item || berat <= 0) {
+            valid = false;
+            return;
+          }
+          items.push({ kategori_sampah: kategori, item_sampah: item, berat });
+        });
+        return valid ? items : null;
+      }
+
+      // ---- Init ----
+      document.addEventListener("DOMContentLoaded", async () => {
+        if (!Auth.requireAuth()) return;
+
+        document.getElementById("user-name").textContent = Auth.getName();
+        document.getElementById("user-role").textContent = Auth.isAdmin()
+          ? "Administrator"
+          : "Anggota Pasukan Katak";
+
+        // Auto-set month based on date input
+        document
+          .getElementById("inp-tgl")
+          .addEventListener("change", function () {
+            const months = [
+              "Januari",
+              "Februari",
+              "Maret",
+              "April",
+              "Mei",
+              "Juni",
+              "Juli",
+              "Agustus",
+              "September",
+              "Oktober",
+              "November",
+              "Desember",
+            ];
+            const date = new Date(this.value);
+            if (!isNaN(date)) {
+              document.getElementById("inp-bulan").value =
+                months[date.getMonth()];
+            }
+          });
+
+        // Add first item row automatically
+        addItemRow();
+
+        // Load recent data
+        loadRecent();
+      });
+
+      // ---- Submit form (batch) ----
+      document
+        .getElementById("report-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const btn = document.getElementById("submit-btn");
+
+          const items = collectItems();
+          if (!items || items.length === 0) {
+            App.showToast(
+              "Lengkapi semua field item (kategori, item, berat) sebelum mengirim!",
+              "error",
+            );
+            return;
+          }
+
+          btn.disabled = true;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+
+          const tglInput = document.getElementById("inp-tgl").value;
+          if (!tglInput) {
+            App.showToast("Tanggal wajib diisi!", "error");
+            btn.disabled = false;
+            btn.innerHTML =
+              '<i class="fas fa-paper-plane"></i> Kirim Semua Data';
+            return;
+          }
+          const dateParts = tglInput.split("-");
+          const tgl = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+
+          const payload = {
+            tgl,
+            bulan: document.getElementById("inp-bulan").value,
+            items,
+          };
+
+          try {
+            const result = await App.api("/api/reports/batch", {
+              method: "POST",
+              body: JSON.stringify(payload),
+            });
+
+            if (result.success) {
+              document.getElementById("success-msg").textContent =
+                `${result.items_count} item berhasil dikirim! Total: ${result.total_berat} kg, Rata-rata: ${result.rata_perhari} kg`;
+              document.getElementById("submit-success").style.display = "block";
+              App.showToast(
+                `${result.items_count} item berhasil dikirim!`,
+                "success",
+              );
+
+              // Reset form
+              document.getElementById("report-form").reset();
+              document.getElementById("items-container").innerHTML = "";
+              itemRowCount = 0;
+              addItemRow();
+              recalcTotals();
+
+              setTimeout(() => {
+                document.getElementById("submit-success").style.display =
+                  "none";
+              }, 6000);
+              loadRecent();
+            } else {
+              App.showToast(result.message || "Gagal mengirim data", "error");
+            }
+          } catch (err) {
+            App.showToast("Error: " + err.message, "error");
+          }
+
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Semua Data';
         });
 
-        if (result.success) {
-          document.getElementById('success-msg').textContent =
-            `${result.items_count} item berhasil dikirim! Total: ${result.total_berat} kg, Rata-rata: ${result.rata_perhari} kg`;
-          document.getElementById('submit-success').style.display = 'block';
-          App.showToast(`${result.items_count} item berhasil dikirim!`, 'success');
-
-          // Reset form
-          document.getElementById('report-form').reset();
-          document.getElementById('items-container').innerHTML = '';
-          itemRowCount = 0;
-          addItemRow();
-          recalcTotals();
-
-          setTimeout(() => {
-            document.getElementById('submit-success').style.display = 'none';
-          }, 6000);
-          loadRecent();
-        } else {
-          App.showToast(result.message || 'Gagal mengirim data', 'error');
+      async function loadRecent() {
+        try {
+          const data = await App.loadReports();
+          const recent = data.slice(-10).reverse();
+          App._tableData["recent-data"] = recent;
+          App.renderTable(recent, "recent-data", { perPage: 10 });
+        } catch (err) {
+          document.getElementById("recent-data").innerHTML =
+            '<p style="color:var(--text-muted); text-align:center;">Tidak dapat memuat data</p>';
         }
-      } catch (err) {
-        App.showToast('Error: ' + err.message, 'error');
       }
-
-      btn.disabled = false;
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Semua Data';
-    });
-
-    async function loadRecent() {
-      try {
-        const data = await App.loadReports();
-        const recent = data.slice(-10).reverse();
-        App._tableData['recent-data'] = recent;
-        App.renderTable(recent, 'recent-data', { perPage: 10 });
-      } catch (err) {
-        document.getElementById('recent-data').innerHTML =
-          '<p style="color:var(--text-muted); text-align:center;">Tidak dapat memuat data</p>';
-      }
-    }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
