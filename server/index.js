@@ -113,10 +113,7 @@ function requireAdmin(req, res, next) {
 
 // ==================== GOOGLE SHEETS DATA ====================
 // Instagram API Token
-const INSTAGRAM_TOKEN =
-  process.env.INSTAGRAM_TOKEN ||
-  "IGABDoZCiNq5ORBZAGFHeHpIbmh1M3hKZA29ZAUVJtZAVc5ZAEpQb0gxR2MzVWJTNVdiYkphMkk4UXhTQ21lVFdrSE1raEF6WTdTZA01PMXhzajRkQm9IOC1qVllVVW9pUzNra0tCWmRTUU5ldnIxTWhZATEdmTnZAUNEluc2cyZAEZAiZAmdOawZDZD";
-
+const INSTAGRAM_TOKEN = process.env.INSTAGRAM_TOKEN;
 // Instagram feed cache (refresh every 15 minutes for near real-time updates)
 let igCache = null;
 let igLastFetch = 0;
@@ -177,12 +174,22 @@ app.get("/api/instagram/feed", async (req, res) => {
     console.log(
       `📸 Instagram: ${allPosts.length} total, ${recentPosts.length} in last 7 days, returning ${finalPosts.length} (max 9)`,
     );
-    res.json({ success: true, data: finalPosts, total: allPosts.length, recent: recentPosts.length });
+    res.json({
+      success: true,
+      data: finalPosts,
+      total: allPosts.length,
+      recent: recentPosts.length,
+    });
   } catch (err) {
     console.error("Instagram API error:", err.message);
     // Return cached data if available on error
     if (igCache) {
-      return res.json({ success: true, data: igCache, cached: true, stale: true });
+      return res.json({
+        success: true,
+        data: igCache,
+        cached: true,
+        stale: true,
+      });
     }
     res.json({ success: false, message: err.message });
   }
@@ -472,7 +479,7 @@ app.post("/api/reports", requireAuth, async (req, res) => {
     try {
       const { google } = require("googleapis");
       const auth = new google.auth.GoogleAuth({
-        keyFile: path.join(__dirname, "credentials.json"),
+        credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
       });
       const sheets = google.sheets({ version: "v4", auth });
@@ -546,7 +553,7 @@ app.post("/api/reports/batch", requireAuth, async (req, res) => {
     try {
       const { google } = require("googleapis");
       const auth = new google.auth.GoogleAuth({
-        keyFile: path.join(__dirname, "credentials.json"),
+        credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
       });
       const sheets = google.sheets({ version: "v4", auth });
