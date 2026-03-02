@@ -747,19 +747,6 @@ app.get("*", (req, res) => {
 });
 
 // ==================== START ====================
-app.listen(PORT, () => {
-  console.log(`
-╔══════════════════════════════════════════════════════════╗
-║   🐸 PASUKAN KATAK ORANGE - API SERVER                  ║
-║   Dinas Lingkungan Hidup Kota Bekasi                     ║
-║                                                          ║
-║   Server: http://localhost:${PORT}                        ║
-║   API:    http://localhost:${PORT}/api/health              ║
-║                                                          ║
-║   Login Admin:   admin / admin2026                        ║
-║   Login Anggota: jambuxbewok / katak2018                  ║
-║                                                          ║
-║   Spreadsheet: ${SPREADSHEET_ID}                         ║
-╚══════════════════════════════════════════════════════════╝
-  `);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
